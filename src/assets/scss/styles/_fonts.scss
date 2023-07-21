@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'Visby CF Demi';
+    src: url('../fonts/VisbyCF-DemiBold.eot');
+    src: url('../fonts/VisbyCF-DemiBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/VisbyCF-DemiBold.woff2') format('woff2'),
+        url('../fonts/VisbyCF-DemiBold.woff') format('woff'),
+        url('../fonts/VisbyCF-DemiBold.ttf') format('truetype'),
+        url('../fonts/VisbyCF-DemiBold.svg#VisbyCF-DemiBold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Visby CF Medium';
+    src: url('../fonts/VisbyCF-Medium.eot');
+    src: url('../fonts/VisbyCF-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/VisbyCF-Medium.woff2') format('woff2'),
+        url('../fonts/VisbyCF-Medium.woff') format('woff'),
+        url('../fonts/VisbyCF-Medium.ttf') format('truetype'),
+        url('../fonts/VisbyCF-Medium.svg#VisbyCF-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Visby CF';
+    src: url('../fonts/VisbyCF-Light.eot');
+    src: url('../fonts/VisbyCF-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/VisbyCF-Light.woff2') format('woff2'),
+        url('../fonts/VisbyCF-Light.woff') format('woff'),
+        url('../fonts/VisbyCF-Light.ttf') format('truetype'),
+        url('../fonts/VisbyCF-Light.svg#VisbyCF-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Visby CF Regular';
+    src: url('../fonts/VisbyCF-Regular.eot');
+    src: url('../fonts/VisbyCF-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/VisbyCF-Regular.woff2') format('woff2'),
+        url('../fonts/VisbyCF-Regular.woff') format('woff'),
+        url('../fonts/VisbyCF-Regular.ttf') format('truetype'),
+        url('../fonts/VisbyCF-Regular.svg#VisbyCF-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

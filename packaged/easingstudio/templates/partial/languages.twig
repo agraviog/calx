@@ -1,0 +1,6 @@
+
+    <ul class="languages">
+        {% for currentLang in languagelist %}
+        <li><a {% if currentLang['active'] %}class="active"{% endif %} href="{{currentLang['url']}}">{{currentLang['language_code']|slice(0,2) }}</a></li>
+        {% endfor %}
+    </ul>

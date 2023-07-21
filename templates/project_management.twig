@@ -1,0 +1,406 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+	<div class="container intro js-typed-text">
+		<div class="row">
+			<div class="col-md-5 col-xl-4 col-xxl-3 order-2 order-md-1">
+				<p class="intro--text">{{post.meta('intro').label}}</p>
+			</div>
+
+			<div class="col-md-7 col-xl-6 col-xxl-7 offset-xl-1 offset-xxl-2 pd-left order-1 order-md-2">
+				<div class="row row--inner">
+					<div class="col-xl-9">
+						<h1 class="intro--title">{{post.title}}</h1>
+					</div>
+				</div>
+
+				<em class="intro--subtitle letters">{{post.meta('intro').title}}</em>
+
+				<div class="row row--inner mt-px40 slideUp">
+					<div class="col-12 col-xl-5">
+						<p class="opacity-7 fadeIn">{{post.meta('intro').content.column_one}}</p>
+					</div>
+					<div class="col-12 col-xl-5 offset-xl-1">
+						<p class="opacity-7 fadeIn">{{post.meta('intro').content.column_two}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container slideUp s-strategy reveal-header s--intro">
+		<div class="row ltr">
+			<div class="col-12 d-none d-md-inline-flex">
+				<p class="size14 opacity-7 demi">{{__('CALX Consulting – Saudi Arabia', 'calx')}}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 relative oh">
+				<div class="panel"></div>
+				<picture>
+					<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(post.meta('intro').image).src|resize(1800, 1000|towebp)}} 1x, {{ Image(post.meta('intro').image).src|resize(1850, 1000)|towebp}} 2x">
+					<source media="(min-width: 1200px)" srcset="{{ Image(post.meta('intro').image).src | resize(1800, 1000)}} 1x, {{ Image(post.meta('intro').image).src | resize(1850, 1000)}} 2x">
+					<source media="(min-width: 600px)" srcset="{{ Image(post.meta('intro').image).src | resize(800, 800)}}">
+					<img src="{{ Image(post.meta('intro').image).src | resize(600, 400) }}" alt="CALX Intro Image" class="intro--picture darkEl" />
+				</picture>
+			</div>
+		</div>
+	</div>
+
+	<div class="container mt-px30 d-none d-md-block s--labels">
+		<div class="row">
+			<div class="col-md-4 col-xl-3 col-1">
+				<p class="size14 demi">{{__('CALX Global Partnership', 'calx')}}</p>
+			</div>
+			<div class="col-md-4 offset-xl-2 col-xl-4 col-xxl-4 pd-left col-2">
+				<p class="size14 demi">{{__('Deep commitment to diversity', 'calx')}}</p>
+			</div>
+			<div class="col-md-4 col-xl-3 text-xxl-right col-3">
+				<p class="size14 demi">{{__('Making positive social impact', 'calx')}}</p>
+			</div>
+		</div>
+	</div>
+
+
+	{% set content = post.meta('making_delivery') %}
+	<div class="container s--largetext fade-trigger s--making_delivery">
+		<div class="row">
+			<div class="col-md-4 col-xl-5">
+				<em class="fadeIn"><strong>{{content.title}}</strong></em>
+			</div>
+			<div class="col-12 col-md-8 col-xl-7 pd-left">
+				<p class="fadeIn">
+					{{content.text}}
+				</p>
+				<p class="fadeIn smalltext opacity-7 mt-px40">
+					{{content.extra}}
+				</p>
+			</div>
+		</div>
+	</div>
+
+	{% set blockquote = post.meta('blockquote') %}
+	<div class="container-fluid oh">
+		<div class="row d-flex flex-nowrap justify-content-center">
+			<div class="col-auto text-center relative">
+				<blockquote class="js-parallax" data-parallax='{"x": 250, "smoothness": 20}'>
+					{{blockquote.first_line}}
+				</blockquote>
+				<blockquote class="js-parallax-reverse" data-parallax='{"x": -150, "smoothness": 10}'>
+					{{blockquote.second_line}}
+				</blockquote>
+			</div>
+		</div>
+	</div>
+
+	{% set organizational = post.meta('organizational') %}
+	<div class="container s--largetext fade-trigger s--organizational">
+		<div class="row">
+			<div class="col-md-4 col-xl-5">
+				<em class="fadeIn">{{organizational.title}}</em>
+			</div>
+			<div class="col-12 col-md-8 col-xl-7 pd-left">
+				<p class="fadeIn">
+					{{organizational.text}}
+				</p>
+				<p class="fadeIn smalltext opacity-7 mt-px40">
+					{{organizational.extra}}
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container showIMG--triger">
+		<div class="row d-flex s--fluid-image relative">
+			<div class="col-12 relative">
+				<div class="cortains">
+					<div class="cortains--left"></div>
+					<div class="cortains--right"></div>
+				</div>
+				<picture>
+					<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(organizational.image).src|resize(1800, 1000|towebp)}} 1x, {{ Image(organizational.image).src|resize(1850, 1000)|towebp}} 2x">
+					<source media="(min-width: 1200px)" srcset="{{ Image(organizational.image).src | resize(1800, 1000)}} 1x, {{ Image(organizational.image).src | resize(1850, 1000)}} 2x">
+					<source media="(min-width: 600px)" srcset="{{ Image(organizational.image).src | resize(800, 800)}}">
+					<img src="{{ Image(organizational.image).src | resize(700, 600) }}" alt="CALX Image" class="darkEl fadeIn"/>
+				</picture>
+			</div>
+		</div>
+	</div>
+	<div class="container mt-px30 d-none d-md-block s--labels">
+		<div class="row">
+			<div class="col-md-4 col-xl-3 col1">
+				<p class="size14 demi">{{__('CALX Global Partnership', 'calx_project_management')}}</p>
+			</div>
+			<div class="col-md-4 offset-xl-2 col-xl-4 col-xxl-4 pd-left col-2">
+				<p class="size14 demi">{{__('Deep commitment to diversity', 'calx_project_management')}}</p>
+			</div>
+			<div class="col-md-4 col-xl-3 text-xxl-right col-3">
+				<p class="size14 demi">{{__('Making positive social impact', 'calx_project_management')}}</p>
+			</div>
+		</div>
+	</div>
+
+
+
+	{% set pmo_design = post.meta('pmo_design') %}
+	<div class="container s--largetext fade-trigger s--pmo_design">
+		<div class="row">
+			<div class="col-md-4 col-xl-5">
+				<em class="fadeIn">{{pmo_design.title}}</em>
+			</div>
+			<div class="col-12 col-md-8 col-xl-7 pd-left">
+				<p class="fadeIn">
+					{{pmo_design.text}}
+				</p>
+				<p class="fadeIn smalltext opacity-7 mt-px40">
+					{{pmo_design.extra}}
+				</p>
+
+				<div class="row s--small-text">
+					<div class="col-xl-5 fadeIn">
+						<p class="smalltext opacity-7">
+							{{pmo_design.column_one_text}}
+						</p>
+					</div>
+					<div class="col-xl-5 offset-xl-1 fadeIn">
+						<p class="smalltext opacity-7">
+							{{pmo_design.column_two_text}}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container showIMG--triger">
+		<div class="row d-flex s--fluid-image relative">
+			<div class="col-12 relative">
+				<div class="cortains">
+					<div class="cortains--left"></div>
+					<div class="cortains--right"></div>
+				</div>
+				<picture>
+					<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(pmo_design.image).src|resize(1800, 1000|towebp)}} 1x, {{ Image(pmo_design.image).src|resize(1850, 1000)|towebp}} 2x">
+					<source media="(min-width: 1200px)" srcset="{{ Image(pmo_design.image).src | resize(1800, 1000)}} 1x, {{ Image(pmo_design.image).src | resize(1850, 1000)}} 2x">
+					<source media="(min-width: 600px)" srcset="{{ Image(pmo_design.image).src | resize(800, 800)}}">
+					<img src="{{ Image(pmo_design.image).src | resize(700, 600) }}" alt="CALX Image" class="darkEl fadeIn"/>
+				</picture>
+			</div>
+		</div>
+	</div>
+	<div class="container mt-px30 d-none d-md-block s--labels">
+		<div class="row">
+			<div class="col-md-4 col-xl-3 col-1">
+				<p class="size14 demi">{{__('CALX Global Partnership', 'calx_project_management')}}</p>
+			</div>
+			<div class="col-md-4 offset-xl-2 col-xl-4 col-xxl-4 pd-left col-2">
+				<p class="size14 demi">{{__('Deep commitment to diversity', 'calx_project_management')}}</p>
+			</div>
+			<div class="col-md-4 col-xl-3 text-xxl-right col-3">
+				<p class="size14 demi">{{__('Making positive social impact', 'calx_project_management')}}</p>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	{% set ppm_assessment = post.meta('ppm_assessment') %}
+	<div class="container s--largetext fade-trigger s--organizational">
+		<div class="row">
+			<div class="col-md-4 col-xl-5">
+				<em class="fadeIn">{{ppm_assessment.title}}</em>
+			</div>
+			<div class="col-12 col-md-8 col-xl-7 pd-left">
+				<p class="fadeIn">
+					{{ppm_assessment.text}}
+				</p>
+				<p class="fadeIn smalltext opacity-7 mt-px40">
+					{{ppm_assessment.extra}}
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+
+	{% set blockquote = post.meta('blockquote_middle') %}
+	<div class="container-fluid oh">
+		<div class="row d-flex flex-nowrap justify-content-center">
+			<div class="col-auto text-center relative">
+				<blockquote class="js-parallax" data-parallax='{"x": -200, "smoothness": 20}'>
+					{{blockquote.first_line}}
+				</blockquote>
+				<blockquote class="js-parallax-reverse" data-parallax='{"x": 250, "smoothness": 10}'>
+					{{blockquote.second_line}}
+				</blockquote>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	{% set competences = post.meta('competences') %}
+	<div class="container s--largetext fade-trigger s--organizational">
+		<div class="row">
+			<div class="col-md-4 col-xl-5">
+				<em class="fadeIn">{{competences.title}}</em>
+			</div>
+			<div class="col-12 col-md-8 col-xl-7 pd-left">
+				<p class="fadeIn">
+					{{competences.text}}
+				</p>
+				<p class="fadeIn smalltext opacity-7 mt-px40">
+					{{competences.extra}}
+				</p>
+
+				<div class="row s--small-text">
+					<div class="col-xl-5 fadeIn">
+						<p class="smalltext opacity-7">
+							{{competences.column_one_text}}
+						</p>
+					</div>
+					<div class="col-xl-5 offset-xl-1 fadeIn">
+						<p class="smalltext opacity-7">
+							{{competences.column_three_text}}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container showIMG--triger">
+		<div class="row d-flex s--fluid-image relative">
+			<div class="col-12 relative">
+				<div class="cortains">
+					<div class="cortains--left"></div>
+					<div class="cortains--right"></div>
+				</div>
+				<picture>
+					<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(competences.image).src|resize(1800, 1000|towebp)}} 1x, {{ Image(competences.image).src|resize(1850, 1000)|towebp}} 2x">
+					<source media="(min-width: 1200px)" srcset="{{ Image(competences.image).src | resize(1800, 1000)}} 1x, {{ Image(competences.image).src | resize(1850, 1000)}} 2x">
+					<source media="(min-width: 600px)" srcset="{{ Image(competences.image).src | resize(800, 800)}}">
+					<img src="{{ Image(competences.image).src | resize(700, 600) }}" alt="CALX Image" class="darkEl fadeIn"/>
+				</picture>
+			</div>
+		</div>
+	</div>
+	<div class="container mt-px30 d-none d-md-block s--labels">
+		<div class="row">
+			<div class="col-md-4 col-xl-3 col1">
+				<p class="size14 demi">{{__('CALX Global Partnership', 'calx_project_management')}}</p>
+			</div>
+			<div class="col-md-4 offset-xl-2 col-xl-4 col-xxl-4 pd-left col-2">
+				<p class="size14 demi">{{__('Deep commitment to diversity', 'calx_project_management')}}</p>
+			</div>
+			<div class="col-md-4 col-xl-3 text-xxl-right col-3">
+				<p class="size14 demi">{{__('Making positive social impact', 'calx_project_management')}}</p>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	{% set digitalizing = post.meta('digitalizing') %}
+	<div class="container s--largetext fade-trigger s--organizational">
+		<div class="row">
+			<div class="col-md-4 col-xl-5">
+				<em class="fadeIn">{{digitalizing.title}}</em>
+			</div>
+			<div class="col-12 col-md-8 col-xl-7 pd-left">
+				<p class="fadeIn">
+					{{digitalizing.text}}
+				</p>
+				<p class="fadeIn smalltext opacity-7 mt-px40">
+					{{digitalizing.extra}}
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+	{% set p3m_one = post.meta('p3m_one') %}
+	<div class="container s--largetext fade-trigger s--p3m_one">
+		<div class="row">
+			<div class="col-md-4 col-xl-5">
+				<em class="fadeIn">{{p3m_one.title}}</em>
+			</div>
+			<div class="col-12 col-md-8 col-xl-7 pd-left">
+				<p class="fadeIn">
+					{{p3m_one.text}}
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="container showIMG--triger">
+		<div class="row d-flex s--fluid-image relative">
+			<div class="col-12 relative">
+				<div class="cortains">
+					<div class="cortains--left"></div>
+					<div class="cortains--right"></div>
+				</div>
+				<picture>
+					<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(p3m_one.image).src|resize(1800, 1000|towebp)}} 1x, {{ Image(p3m_one.image).src|resize(1850, 1000)|towebp}} 2x">
+					<source media="(min-width: 1200px)" srcset="{{ Image(p3m_one.image).src | resize(1800, 1000)}} 1x, {{ Image(p3m_one.image).src | resize(1850, 1000)}} 2x">
+					<source media="(min-width: 600px)" srcset="{{ Image(p3m_one.image).src | resize(800, 800)}}">
+					<img src="{{ Image(p3m_one.image).src | resize(700, 600) }}" alt="CALX Image" class="darkEl fadeIn"/>
+				</picture>
+			</div>
+		</div>
+	</div>
+	<div class="container mt-px30 d-none d-md-block s--labels">
+		<div class="row">
+			<div class="col-md-4 col-xl-3 col1">
+				<p class="size14 demi">{{__('CALX Global Partnership', 'calx_project_management')}}</p>
+			</div>
+			<div class="col-md-4 offset-xl-2 col-xl-4 col-xxl-4 pd-left col-2">
+				<p class="size14 demi">{{__('Deep commitment to diversity', 'calx_project_management')}}</p>
+			</div>
+			<div class="col-md-4 col-xl-3 text-xxl-right col-3">
+				<p class="size14 demi">{{__('Making positive social impact', 'calx_project_management')}}</p>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	{% set turnkey = post.meta('turnkey') %}
+	<div class="s--largetext s--turnkey fade-trigger">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-xl-5">
+					<em class="fadeIn"><strong>{{turnkey.title}}</strong></em>
+				</div>
+				<div class="col-12 col-md-8 col-xl-7 pd-left">
+					<p class="fadeIn">
+						{{turnkey.text}}
+					</p>
+					<p class="fadeIn mt-px40 opacity-7 smalltext">
+						{{turnkey.subtext}}
+					</p>
+
+
+					<div class="s--enquire">
+						<div class="s--small-text">
+							<span class="opacity-7 fadeIn medium">{{__('Interested?', 'calx')}}</span>
+						</div>
+						<span class="enquire fadeIn mt-px10 block">
+							<a href="{{ fn('get_permalink', 194) }}" class="link--underline cta demi">{{__('Make an Enquiry', 'calx')}}</a>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

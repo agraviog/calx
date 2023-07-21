@@ -1,0 +1,47 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+<div class="mt-px70">
+	<div class="container">
+		{% for item in services %}
+			<div class="row justify-content-center d-flex align-items-center" data-module="element--thumbs">
+				<div class="col-12 col-md-4 col-xl-3">
+					<a href="{{ fn('get_permalink', item.ID) }}">
+						<em>{{item.meta('title') }}</em>
+					</a>
+
+					<div class="mt-px10 d-block d-md-none">
+						<a href="{{ fn('get_permalink', item.ID) }}">
+							<picture>
+								<img src="{{Image(item.cover_image).src|resize(600, 450)}}" alt="Image"/>
+							</picture>
+						</a>
+					</div>
+					<div class="mt-px20 row">
+						<p class="text col-10 col-md-12 col-xl-10">{{item.meta('short_description')}}</p>
+					</div>
+					<div class="mt-px20">
+						<a href="{{ fn('get_permalink', item.ID) }}" class="button-with-arrow"><span>{{ __("Découvrez", "adom") }}</span> <svg viewBox="0 0 33 33" class="icon-arrow-circle"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow-circle" /></svg></a>
+					</div>
+				</div>
+				<div class="col-md-8 d-none d-md-inline">
+					<a href="{{ fn('get_permalink', item.ID) }}">
+						<picture>
+							<source media="(min-width: 1200px)"
+							srcset="{{ Image(item.cover_image).src|resize(1440, 800) }}">
+							<source media="(min-width: 768px)"
+							srcset="{{ Image(item.cover_image).src|resize(1000, 800) }}">
+							<img src="{{Image(item.cover_image).src|resize(600, 450)}}" alt="Image"/>
+						</picture>
+					</a>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+<div class="mt-px3	0">
+	{% include 'modules/cta-contacts.twig' %}
+</div>
+
+{% endblock %}

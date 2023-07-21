@@ -1,0 +1,35 @@
+{% set colors = 'miscellaneous' %}
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+	<div class="container intro js-typed-text">
+		<div class="row">
+			<div class="col-md-5 col-xl-4 col-xxl-3 order-2 order-md-1 d-none d-md-inline-block">
+				<p class="intro--text">{{post.meta('intro').label}}</p>
+			</div>
+
+			<div class="col-md-7 col-xl-5 col-xxl-5 offset-xl-1 offset-xxl-2 pd-left order-1 order-md-2">
+				<div class="row row--inner">
+					<div class="col-xl-12">
+						<h1 class="intro--title">{{post.title}}</h1>
+					</div>
+				</div>
+
+				<em class="intro--subtitle letters">
+					{{__('Thanks for getting in touch!', 'calx')}}
+					<br>
+					<br>
+					{{__('We appreciate you contacting CALX.<br>One of our colleagues will get back in touch with you soon.', 'calx')}}
+				</em>
+
+				<div class="mt-px20">
+					<a href="{{ fn('get_permalink', 2) }}" class="moveitUp cta btn-read-more mt">
+						<span>{{ __('Homepage', 'calx') }}</span>
+						<svg viewBox="0 0 8.121 13.414" class="arrow"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow" /></svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

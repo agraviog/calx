@@ -1,0 +1,39 @@
+
+
+
+    {% include "layouts/html-header.twig" %}
+
+
+    {% include "partial/loading.twig" %}
+
+    <div class="d-none d-xl-block">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-auto">
+                    {% include "partial/languages.twig" %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include "partial/header.twig" %}
+
+	<main role="main">
+		{% block content %}
+			Sorry, no content
+		{% endblock %}
+	</main>
+
+	{% block footer %}
+
+		{% include 'partial/footer.twig' %}
+
+		{{ function('wp_footer') }}
+	{% endblock %}
+
+    {% block scripts %}
+    <!-- Start of adomhelp Zendesk Widget script -->
+    <script async id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=1aa6e1c6-773b-4481-8e26-ff8d99ee1adf"></script>
+    <!-- End of adomhelp Zendesk Widget script -->
+    {% endblock %}
+	</body>
+</html>

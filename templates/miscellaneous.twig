@@ -1,0 +1,40 @@
+{% set colors = 'miscellaneous' %}
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+	<div class="container intro js-typed-text">
+		<div class="row">
+			<div class="col-md-5 col-xl-4 col-xxl-3 order-2 order-md-1 d-none d-md-inline-block">
+				<p class="intro--text">{{post.meta('intro').label}}</p>
+			</div>
+
+			<div class="col-md-7 col-xl-6 col-xxl-7 offset-xl-1 offset-xxl-2 pd-left order-1 order-md-2">
+				<div class="row row--inner">
+					<div class="col-xl-12">
+						<h1 class="intro--title">{{post.title}}</h1>
+					</div>
+				</div>
+				<em class="intro--subtitle letters">
+					{{post.meta('intro').title}}
+				</em>
+			</div>
+		</div>
+	</div>
+
+	<div class="container s-privacy--content">
+		{% for item in post.meta('items') %}
+		<div class="row single--item js-typed-text">
+			<div class="col-md-5 col-xl-4 col-xxl-3 order-2 order-md-1 d-none d-md-inline-block">
+				<em class="letters">{{item.title}}</em>
+			</div>
+
+			<div class="col-md-7 col-xl-6 col-xxl-7 offset-xl-1 offset-xxl-2 pd-left order-1 order-md-2 moveitUp">
+				{{item.text}}
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+
+{% endblock %}

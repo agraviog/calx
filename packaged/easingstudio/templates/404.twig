@@ -1,0 +1,21 @@
+{% extends "layouts/base-error.twig" %}
+
+{% block content %}
+{{page.url}}
+	<picture class="bg">
+		<img src="/wp-content/uploads/2020/cables.jpg" alt="Image"/>
+	</picture>
+	<div data-module="header--intro" class="js-header standard">
+		<div class="container">
+			<div class="row d-flex align-content-end flex-container justify-content-center">
+				<div class="col-12 homepage--title align-self-end text-center col-xl-10" style="padding-bottom: 15%;">
+					<h1 class="white-shadow center">{{ __("Page not Found", "adom") }}</h1>
+					<div class="mt-px20">
+						<a href="/" class="button-cta">{{ __("Return to Homepage", "adom") }}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

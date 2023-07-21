@@ -1,0 +1,71 @@
+    <header class="ltr">
+        <div class="container">
+            <div class="row d-flex align-items-md-center relative justify-content-md-between">
+                <div class="col-6 col-md-8 col-xl-4">
+                    <a href="{{ fn('get_permalink', 2) }}" class="cta">
+                        <svg viewBox="0 0 129.446 31.085" class="logo"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#logo" /></svg>
+                    </a>
+                </div>
+                <div class="col-auto col-md-4 col-xl-4 text-center d-none d-xl-block rtl">
+                    <a href="{{ fn('get_permalink', 194) }}" class="inline cta stuck link--underline link--underline--centered"><span class="demi">{{__('Let\'s start a conversation','calx')}}</span></a>
+                </div>
+
+                <div class="col-6 col-md-4 text-right">
+                    <div class="row justify-content-end">
+                        <div class="col-auto languages">
+                            {% include 'partial/languages.twig' %}
+                        </div>
+                        <div class="col-auto">
+                            <a href="javascript:void(0);" class="cta stuck nav_burguer">
+                                <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="30" height="12" viewBox="0 0 30 12">
+                                    <g transform="translate(-1369 -50)">
+                                        <rect width="20" id="topline" height="2" transform="translate(1379 50)" fill="currentColor"/>
+                                        <rect width="30" height="2" transform="translate(1369 60)" fill="currentColor"/>
+                                    </g>
+                                </svg>
+                                <svg class="icon-menu" viewBox="0 0 30 12">
+                                    <g fill="currentColor">
+                                        <path d="M0 0H30V2H0z" id="topline"/>
+                                        <path d="M0 0H30V2H0z" transform="translate(0 10)"/>
+                                    </g>
+                                </svg>
+
+                                <svg viewBox="0 0 22.628 22.628" class="icon-cross"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#close" /></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <menu>
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <div class="menu--container">
+                    {% include "partial/menu.twig" with {'items': menu.get_items} %}
+                </div>
+
+                <div class="d-none d-md-block">
+                    <div class="menu--about-us">
+                        {{post.meta('intro').label}}
+                    </div>
+                </div>
+
+                <div class="menu--right-side">
+                    <dl class="d-block d-md-none">
+                        <dt>{{__('Get in touch', 'calx')}}</dt>
+                        <dd><a href="mailto:contact@calx.co" class="visbyregular link--underline cta">contact@calx.co</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>{{__('Follow us', 'calx')}}</dt>
+                        <dd><a href="{{linkedin}}" target="_blank" class="visbyregular link--underline cta">Linkedin</a></dd>
+                    </dl>
+                    <dl class="d-none d-md-block">
+                        <dt>{{__('Get in touch', 'calx')}}</dt>
+                        <dd><a href="mailto:contact@calx.co" class="visbyregular link--underline cta">contact@calx.co</a></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </menu>

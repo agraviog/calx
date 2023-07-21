@@ -1,0 +1,123 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+	<div class="container intro js-typed-text">
+		<div class="row">
+			<div class="col-md-5 col-xl-4 col-xxl-3 order-2 order-md-1 d-none d-md-inline-block">
+				<p class="intro--text"></p>
+			</div>
+
+			<div class="col-md-7 col-xl-6 col-xxl-7 offset-xl-1 offset-xxl-2 pd-left order-1 order-md-2">
+				<h1 class="intro--title">{{post.title}}</h1>
+
+				<em class="intro--subtitle slideUp">{{post.meta('intro').text}}</em>
+
+				<div class="row row--inner mt-px40">
+					<div class="col-12 col-xl-12">
+						<p class="opacity-7 slideUp">{{post.meta('intro').short_text}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container moveitUp reveal-header s--intro">
+		<div class="row">
+			<div class="col-md-5 col-xl-5 d-none d-md-inline-flex">
+				<p class="size14 opacity-7">{{__('CALX Consulting – Saudi Arabia', 'calx')}}</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-12 relative oh">
+				<div class="panel"></div>
+				<picture>
+					<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(post.meta('intro').cover_image).src|resize(1800, 1000)|towebp}} 1x, {{ Image(post.meta('intro').cover_image).src|resize(1850, 1000)|towebp}} 2x">
+					<source media="(min-width: 1200px)" srcset="{{ Image(post.meta('intro').cover_image).src | resize(1800, 1000)}} 1x, {{ Image(post.meta('intro').cover_image).src | resize(1850, 1000)}} 2x">
+					<source media="(min-width: 600px)" srcset="{{ Image(post.meta('intro').cover_image).src | resize(800, 800)}}">
+					<img src="{{ Image(post.meta('intro').cover_image).src | resize(600, 400) }}" alt="CALX Intro Image" class="intro--picture darkEl" />
+				</picture>
+			</div>
+		</div>
+	</div>
+
+	<div class="container mt-px30 s--labels">
+		<div class="row">
+			<div class="col-md-5 col-xl-5 d-none d-md-inline-flex col-1">
+				<p class="size14 demi">{{__('CALX Global Partnership','calx')}}</p>
+			</div>
+			<div class="col-md-3 text-md-center text-lg-start text-xl-start text-xxl-start col-xl-3 pd-left d-none d-md-inline-flex col-2">
+				<p class="size14 demi">{{__('Deep commitment to diversity', 'calx')}}</p>
+			</div>
+			<div class="col-md-3 text-right text-lg-start col-xl-3 d-none d-md-inline-flex col-3">
+				<p class="size14 demi">{{__('Making positive social impact', 'calx')}}</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		{% for article in post.meta('content') %}
+			<div class="row justify-content-end">
+				{% if article.acf_fc_layout == 'text' %}
+					<div class="col-md-7 col-xl-6 col-xxl-7 pd-left cms--content s-insights--row fade-trigger">
+						<div class="fadeIn">
+							{{article.text}}
+						</div>
+					</div>
+				{% endif %}
+
+				{% if article.acf_fc_layout == 'image' %}
+				<div class="col-12 relative oh showIMG--triger s-insights--image">
+					<div class="cortains">
+						<div class="cortains--left"></div>
+						<div class="cortains--right"></div>
+					</div>
+					<picture>
+						<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(article.image).src|resize(1800, 1000)|towebp}} 1x, {{ Image(article.image).src|resize(1850, 1000)|towebp}} 2x">
+						<source media="(min-width: 1200px)" srcset="{{ Image(article.image).src | resize(1800, 1000)}} 1x, {{ Image(article.image).src | resize(1850, 1000)}} 2x">
+						<source media="(min-width: 600px)" srcset="{{ Image(article.image).src | resize(800, 800)}}">
+						<img src="{{ Image(article.image).src | resize(700, 600) }}" alt="CALX Image" class="darkEl"/>
+					</picture>
+				</div>
+				{% endif %}
+			</div>
+		{% endfor %}
+	</div>
+
+
+	<div class="container s-insights--related-posts">
+		<div class="row">
+			<div class="col-12">
+				<p class="related-title">{{__('You might be interested...', 'calx')}}.</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<div class="swiper-container x-slider d-flex">
+					<div class="swiper-wrapper d-flex justify-content-start align-items-start">
+						{% for i in range(1, 5) %}
+						<div class="swiper-slide relative">
+							<div {% if i < '4' %}class="swiper--inner"{% endif %}>
+								<picture>
+									<source media="(min-width: 1000px)" type="image/webp" srcset="{{ Image(685).src|resize(900, 900)|towebp}} 1x, {{ Image(685).src|resize(1100, 1100)|towebp}} 2x">
+									<source media="(min-width: 1000px)" srcset="{{ Image(685).src | resize(900, 900)}} 1x, {{ Image(685).src | resize(1100, 1100)}} 2x">
+									<img src="{{ Image(685).src | resize(600, 600) }}" alt="CALX Image" class="darkEl" />
+								</picture>
+
+								<div class="swiper-slide--content">
+									<span class="date">12 January 2021</span>
+									<em>Temporary Title</em>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut…</p>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+					<div class="swiper-scrollbar"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

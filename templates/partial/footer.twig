@@ -1,0 +1,109 @@
+
+<footer class="footer">
+    <div class="container">
+        <div class="row d-flex align-items-start">
+            <div class="col-12 col-md-12 col-xl-3 logocol">
+                <a href="{{ fn('get_permalink', 2) }}" class="cta">
+                    <svg viewBox="0 0 129.446 31.085" class="footer--logo"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#logo" /></svg>
+                </a>
+            </div>
+            <div class="d-none d-md-block col-6 col-md-4 col-xl-2 rtl">
+                <span class="label demi">{{__('Who we are', 'calx')}}</span>
+
+                <ul>
+                    <li><a href="{{ fn('get_permalink', 53) }}" class="cta link--underline">{{ __('Our Purpose', 'calx') }}</a></li>
+                    <li><a href="{{ fn('get_permalink', 55) }}" class="cta link--underline">{{__('Our People','calx')}}</a></li>
+                    <li><a href="{{ fn('get_permalink', 570) }}" class="cta link--underline">{{__('A Saudi Brand', 'calx')}}</a></li>
+                    <li><a href="{{ fn('get_permalink', 604) }}" class="cta link--underline">{{__('Industries we serve','calx')}}</a></li>
+                </ul>
+            </div>
+
+            <div class="d-none d-xl-block col-12 col-md-4 col-xl-3 order-1 order-xl-0 rtl">
+                <span class="label demi">{{__('What we do', 'calx')}}</span>
+
+
+                <div class="row secondary">
+                    <div class="col-6">
+                        <ul>
+                            <strong>{{__('Services', 'calx')}}</strong>
+                            <li><a href="{{ fn('get_permalink', 37) }}" class="cta link--underline">{{__('Strategy Consulting','calx')}}</a></li>
+                            <li><a href="{{ fn('get_permalink', 362) }}" class="cta link--underline">{{__('Project Management', 'calx')}}</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <ul>
+                            <strong>{{__('Products', 'calx')}}</strong>
+                            <li><a href="{{ fn('get_permalink', 41) }}" class="cta link--underline">{{__('Project+','calx')}}</a></li>
+                            <li><a href="{{ fn('get_permalink', 43) }}" class="cta link--underline">{{__('WinX','calx')}}</a></li>
+                            <li><a href="{{ fn('get_permalink', 45) }}" class="cta link--underline">{{__('Genius', 'calx')}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-none d-md-block col-6 col-md-4 offset-xl-0 col-xl-2 order-0 order-xl-1 rtl">
+                <span class="label demi">{{__('Work with us', 'calx')}}</span>
+                <ul>
+                    <li><a href="{{ fn('get_permalink', 189) }}" class="cta link--underline">{{__('CALX careers','calx')}}</a></li>
+                    <li><a href="{{ fn('get_permalink', 191) }}" class="cta link--underline">{{__('Join our academy', 'calx')}}</a></li>
+                </ul>
+            </div>
+
+
+            <div class="d-none d-md-block col-md-4 col-xl-2 order-2 order-xl-2 rtl">
+                <span class="label demi">{{__('Contact us', 'calx')}}</span>
+
+                <ul>
+                    <li><a href="{{ fn('get_permalink', 194) }}" class="cta link--underline">{{__('Connect with us', 'calx')}}</a></li>
+                    <li><a href="{{ fn('get_permalink', 196) }}" class="cta link--underline">{{__('Locations', 'calx')}}</a></li>
+                </ul>
+            </div>
+
+            <div class="d-none d-md-block col-6 col-xl-2 offset-xl-1 d-block d-md-none order-3 rtl">
+                <span class="label">{{__('Follow us', 'calx')}}</span>
+
+                <a href="{{linkedin}}" target="_blank" class="cta link--underline">Linkedin</a>
+            </div>
+        </div>
+
+        <div class="footer--form d-none d-xl-block ltr">
+            <div class="row">
+                <div class="col-md-9 col-xl-3 offset-xl-5 rtl demi">
+                    {{__('Sign up to our Newsletter', 'calx')}}
+
+                    <div class="relative rtl">
+                        {% filter shortcodes %}
+                            [contact-form-7 id="707" title="Calx — Newsletter"]
+    					{% endfilter %}
+                    </div>
+                </div>
+                <div class="col-md-3 col-xl-2 d-none d-md-block rtl">
+                    <span class="label">{{__('Follow us', 'calx')}}</span>
+
+                    <a href="{{linkedin}}" target="_blank" class="cta link--underline regular">Linkedin</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row rtl">
+            <div class="col-12 col-md-12 col-xl-3 order-xl-1 copyright">
+                <small class="regular">{{__('© CALX Consulting – Saudi Arabia', 'calx')}}</small>
+            </div>
+            <div class="col-12 text-left text-lg-left col-xl-2 order-xl-2">
+                <small class="regular">{{__('2021 All Rights Reserved', 'calx')}}</small>
+            </div>
+
+            <div class="col-md-4 col-xl-3 order-xl-3 privacy ar-center">
+                <a href="{{ fn('get_permalink', 3) }}" class="regular cta link--underline">{{__('Privacy Statement', 'calx')}}</a>
+            </div>
+            <div class="col-md-4 text-left text-md-center text-lg-start col-xl-2 order-xl-4 privacy ar-center">
+                <a href="{{ fn('get_permalink', 710) }}" class="regular cta link--underline">{{__('Terms & Conditions', 'calx')}}</a>
+            </div>
+            <div class="col-md-4 text-left text-md-right text-lg-start col-xl-2 order-xl-5 privacy">
+                <a href="{{ fn('get_permalink', 712) }}" class="regular cta link--underline">{{__('Cookie Policy', 'calx')}}</a>
+            </div>
+        </div>
+    </div>
+
+</footer>

@@ -1,0 +1,6 @@
+
+    <ul class="languages d-flex align-items-center">
+        {% for currentLang in languagelist %}
+        <li class="{{currentLang['code'] }}"><a class="cta {% if currentLang['active'] %}active{% endif %}" href="{{currentLang['url']}}">{{currentLang['tag'] }}</a></li>
+        {% endfor %}
+    </ul>

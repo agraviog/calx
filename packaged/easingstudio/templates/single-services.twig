@@ -1,0 +1,153 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+
+<div class="container-fluid mt-px50" data-section="common--intro">
+	<div class="row no-gutters align-items-center">
+		<div class="col-6 col-md-4 col-xl-4 textmask">
+			<svg viewBox="0 0 326 376" class="icon-a"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#a" /></svg>
+
+			<h1>{{post.meta('title')}}</h1>
+			<div class="d-none d-md-block text mt-px10">{{post.meta('short_description')}}</div>
+		</div>
+		<div class="col-6 col-md-8 col-xl-8">
+			<picture>
+				<source media="(min-width: 1200px)"
+				srcset="{{ Image(post.cover_image).src|resize(1600, 1000) }}">
+				<source media="(min-width: 768px)"
+				srcset="{{ Image(post.cover_image).src|resize(1000, 800) }}">
+				<img src="{{Image(post.cover_image).src|resize(400, 400)}}" alt="Image"/>
+			</picture>
+		</div>
+	</div>
+</div>
+
+
+<div data-section="solution-introduction">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-8 col-xl-6 text-md-center">
+				<div>
+					<h2>{{post.meta('secondary_title')}}</h2>
+					<div class="mt-px20">
+						<p class="text">{{post.meta('description')}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row no-gutters justify-content-center scrollContainer mt-px20">
+		<div class="col-auto">
+			<div class="scroll">
+				<i></i>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="oh">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				{% for item in post.meta('solution') %}
+				<div class="contentblock mt-px20 row no-gutters">
+					<div class="col-12 col-lg-6 left-wing">
+						<div class="contentblock--info {% if item.slideshow_group|length > 2 %}show-thumbnails{% endif %}">
+							<em>{{item.title}}</em>
+							<div class="slideshow-container relative d-block d-lg-none">
+								<div class="relative">
+									<div class="slideshow--normal mt-px20">
+										{% for item in item.slideshow_group %}
+											<div class="slide relative">
+												{% if item.label %}
+												<div class="legend">
+													<span>{{item.label}}</span>
+												</div>
+												{% endif %}
+												<picture>
+													<source media="(min-width: 768px)"
+													srcset="{{ Image(item.image).src|resize(900, 1000) }}">
+													<img src="{{Image(item.image).src|resize(400, 380)}}" alt="Image"/>
+												</picture>
+											</div>
+										{% endfor %}
+									</div>
+								</div>
+
+								{% if item.slideshow_group|length > 2 %}
+								<div class="slideshow--normal--thumbs d-md-none">
+									{% for item in item.slideshow_group %}
+										<div class="slide">
+											<picture>
+												<source media="(min-width: 768px)"
+												srcset="{{ Image(item.image).src|resize(500, 450) }}">
+												<img src="{{Image(item.image).src|resize(400, 380)}}" alt="Image"/>
+											</picture>
+										</div>
+									{% endfor %}
+								</div>
+								{% else %}
+								<div class="slideshow--normal--thumbs d-md-none">
+									<div class="slide"></div>
+								</div>
+								{% endif %}
+							</div>
+							<div class="mt-px30 text">
+								{{item.description}}
+							</div>
+							{% if item.documentation_link %}
+							<div class="mt-px30">
+								<a href="{{item.documentation_link.url}}" target="{{item.documentation_link.target}}" class="button-with-arrow"><svg viewBox="0 0 37 37" class="icon-external" style="margin-right: 5px;"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#external" /></svg> <span>{{item.documentation_link.title}}</span></a>
+							</div>
+							{% endif %}
+
+
+							{% if item.slideshow_group|length > 2 %}
+								<div class="slideshow--normal--thumbs row  d-none d-lg-block">
+									{% for item in item.slideshow_group %}
+										<div class="slide">
+											<picture>
+												<img src="{{Image(item.image).src|resize(300, 400)}}" alt="Image"/>
+											</picture>
+										</div>
+									{% endfor %}
+								</div>
+							{% else %}
+							<div class="slideshow--normal--thumbs d-md-none">
+								<div class="slide"></div>
+							</div>
+							{% endif %}
+						</div>
+					</div>
+					<div class="col-md-6 d-none d-lg-block slider">
+						<div class="slideshow-container relative d-none d-md-block">
+							<div class="slideshow--normal mt-px20 relative">
+								{% for item in item.slideshow_group %}
+									<div class="slide relative">
+										{% if item.label %}
+										<div class="legend">
+											<span>{{item.label}}</span>
+										</div>
+										{% endif %}
+										<picture>
+											<img src="{{Image(item.image).src|resize(900, 1100)}}" alt="Image"/>
+										</picture>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+{% include 'modules/cta-collaboration.twig' %}
+
+
+{% endblock %}

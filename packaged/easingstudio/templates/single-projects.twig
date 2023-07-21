@@ -1,0 +1,105 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+<div class="container-fluid mt-px50" data-section="common--intro">
+	<div class="row no-gutters align-items-center">
+		<div class="col-6 col-md-4 col-xl-4 textmask">
+			<svg viewBox="0 0 326 376" class="icon-a"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#a" /></svg>
+			<h1 class="uppercase">{{post.meta('title')}}</h1>
+			<div class="d-none d-lg-block text">{{post.meta('short_description')}}</div>
+		</div>
+		<div class="col-6 col-md-8 col-xl-8">
+			<picture>
+				<source media="(min-width: 1200px)"
+				srcset="{{ Image(post.cover_image).src|resize(1650, 1000) }}">
+				<source media="(min-width: 768px)"
+				srcset="{{ Image(post.cover_image).src|resize(1000, 800) }}">
+				<img src="{{Image(post.cover_image).src|resize(400, 300)}}" alt="Image"/>
+			</picture>
+		</div>
+	</div>
+</div>
+
+
+<div data-section="project-introduction">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-10 col-xl-5">
+				<div class="text">{{post.meta('description')}}</div>
+			</div>
+			<div class="col-12 col-md-10 col-xl-2 offset-xl-1">
+				<div class="mt-px20">
+					<p class="smallLabel">{{ __("Produits", "adom") }}</p>
+					{% for item in post.meta('products') %}
+					<div><a href="{{ fn('get_permalink', item.ID) }}" class="link-color"><strong>{{item.title}}</strong></a></div>
+					{% endfor %}
+				</div>
+				<div class="mt-px20">
+					<p class="smallLabel">Année</p>
+					<p>{{post.meta('year')}}</p>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row no-gutters justify-content-center scrollContainer mt-px20">
+			<div class="col-auto">
+				<div class="scroll">
+					<i></i>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="container-fluid oh relative mt-px10">
+	<div class="row">
+		{% for item in post.meta('gallery') %}
+			<div class="col-12 image mt-px20">
+				<picture>
+					<source media="(min-width: 1200px)"
+					srcset="{{ Image(item).src|resize(1920, 1000) }} 1x, {{ Image(post).src|retina(1) }} 2x">
+					<source media="(min-width: 768px)"
+					srcset="{{ Image(item).src|resize(1000, 800) }} 1x, {{ Image(post).src|resize(1000, 1000) }} 2x">
+					<img src="{{Image(item).src|resize(600, 500)}}" alt="Image"/>
+				</picture>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% if post.meta('testimonial').text %}
+<div data-section="testimonial">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-10 col-md-8 col-xl-6">
+				<svg viewBox="0 0 24 24" class="icon-quote pre"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#quote" /></svg>
+				<p>{{post.meta('testimonial').text}}</p>
+				<svg viewBox="0 0 24 24" class="icon-quote post"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#quote" /></svg>
+				<span>{{post.meta('testimonial').author}}</span>
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}
+
+<div class="container-fluid oh relative">
+	<div class="row">
+		{% for item in post.meta('gallery_last') %}
+			<div class="col-12 image mt-px20">
+				<picture>
+					<source media="(min-width: 1200px)"
+					srcset="{{ Image(item).src|resize(1200, 750) }} 1x, {{ Image(post).src|retina(1) }} 2x">
+					<source media="(min-width: 768px)"
+					srcset="{{ Image(item).src|resize(1000, 800) }} 1x, {{ Image(post).src|resize(1000, 1000) }} 2x">
+					<img src="{{Image(item).src|resize(600, 380)}}" alt="Image"/>
+				</picture>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+{% include 'modules/cta-contacts.twig' %}
+
+{% endblock %}

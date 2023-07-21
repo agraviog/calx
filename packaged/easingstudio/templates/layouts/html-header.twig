@@ -1,0 +1,29 @@
+<!doctype html>
+<html class="no-scroll" {{ site.language_attributes }}>
+<head>
+    <meta charset="{{ site.charset }}" />
+    <meta name="description" content="{{ site.description }}">
+
+    <!-- made by easing.studio -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="author" href="{{ site.theme.link }}/humans.txt" />
+    <meta name="generator" content="Easing Studio ® (http://easing.studio)">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.theme.link }}/favicons/{{site.language|slice(0,2)}}/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ site.theme.link }}/favicons/{{site.language|slice(0,2)}}/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ site.theme.link }}/favicons/{{site.language|slice(0,2)}}/favicon-16x16.png">
+    <link rel="manifest" href="{{ site.theme.link }}/favicons/{{site.language|slice(0,2)}}/site.webmanifest">
+    <link rel="mask-icon" href="{{ site.theme.link }}/favicons/{{site.language|slice(0,2)}}/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="{{ site.theme.link }}/favicons/{{site.language|slice(0,2)}}/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="{{ site.theme.link }}/favicons/{{site.language|slice(0,2)}}/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <!-- end of favicon -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+	{{function('wp_head')}}
+</head>
+<body class="{{body_class}} {{colors}} page-loading">

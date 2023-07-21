@@ -1,0 +1,164 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+	<div class="container intro js-typed-text">
+		<div class="row">
+			<div class="col-md-5 col-xl-4 col-xxl-3 order-2 order-md-1 d-none d-md-inline-block">
+				<p class="intro--text">{{post.meta('intro').label}}</p>
+			</div>
+
+			<div class="col-md-7 col-xl-6 col-xxl-7 offset-xl-1 offset-xxl-2 pd-left order-1 order-md-2">
+				<div class="row row--inner">
+					<div class="col-xl-9">
+						<h1 class="intro--title">{{post.title}}</h1>
+					</div>
+				</div>
+
+				<em class="intro--subtitle letters">{{post.meta('intro').title}}</em>
+
+				<div class="row row--inner mt-px40 slideUp">
+					<div class="col-12 col-xl-5">
+						<p class="opacity-7 fadeIn">{{post.meta('intro').content.column_one}}</p>
+					</div>
+					<div class="col-12 col-xl-5 offset-xl-1">
+						<p class="opacity-7 fadeIn">{{post.meta('intro').content.column_two}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% set ceo = post.meta('ceo') %}
+	<div class="container slideUp s-strategy reveal-header s--intro s--ceo js-typed-text ltr">
+		<div class="row">
+			<div class="col-md-5 col-xl-5 d-none d-md-inline-flex">
+				<p class="size14 opacity-7">CALX Consulting</p>
+			</div>
+		</div>
+		<div class="row mt-px40 d-flex align-items-end">
+			<div class="col-12 col-xl-4 col-xxl-4 relative oh">
+				<div class="panel"></div>
+				<picture>
+					<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(ceo.image).src|resize(670, 800|towebp)}} 1x, {{ Image(ceo.image).src|resize(1100, 1400)|towebp}} 2x">
+					<source media="(min-width: 1200px)" srcset="{{ Image(ceo.image).src | resize(500, 651)}} 1x, {{ Image(ceo.image).src | resize(1100, 1400)}} 2x">
+					<source media="(min-width: 600px)" srcset="{{ Image(ceo.image).src | resize(500, 800)}}">
+					<img src="{{ Image(ceo.image).src | resize(700, 600) }}" alt="CALX Image" class="intro--picture darkEl fadeIn"/>
+				</picture>
+			</div>
+			<div class="col-12 col-xl-6 col-xxl-7 offset-xl-1 offset-xxl-1 pd-left rtl">
+				<em>
+					<svg viewBox="0 0 167.5 122" class="quote"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#quote" /></svg>
+					<div class="letters">
+						{{ceo.text}}
+					</div>
+				</em>
+
+				<div class="author row">
+					<div class="col-12 order-1 order-md-0">
+						<strong>{{__('Issam Houdane', 'calx')}}</strong>
+						<span>{{__('President and CEO', 'calx')}} - CALX</span>
+					</div>
+					<div class="col-12 order-0 order-md-1">
+						<hr>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% set blockquote = post.meta('blockquote') %}
+	<div class="container-fluid oh">
+		<div class="row d-flex flex-nowrap justify-content-center">
+			<div class="col-auto text-center relative">
+				<blockquote class="js-parallax" data-parallax='{"x": 250, "smoothness": 20}'>
+					{{blockquote.first_line}}
+				</blockquote>
+				<blockquote class="js-parallax-reverse" data-parallax='{"x": -150, "smoothness": 10}'>
+					{{blockquote.second_line}}
+				</blockquote>
+			</div>
+		</div>
+	</div>
+
+
+	{% set culture = post.meta('culture') %}
+	<div class="container s--largetext fade-trigger s--culture">
+		<div class="row">
+			<div class="col-md-4 col-xl-5">
+				<em class="fadeIn">{{culture.title}}</em>
+			</div>
+			<div class="col-12 col-md-8 col-xl-7 pd-left">
+				<p class="fadeIn">
+					{{culture.text}}
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="container showIMG--triger">
+		<div class="row d-flex s--fluid-image relative">
+			<div class="col-12 relative">
+				<div class="cortains">
+					<div class="cortains--left"></div>
+					<div class="cortains--right"></div>
+				</div>
+				<picture>
+					<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(culture.image).src|resize(1800, 1000|towebp)}} 1x, {{ Image(culture.image).src|resize(1850, 1000)|towebp}} 2x">
+					<source media="(min-width: 1200px)" srcset="{{ Image(culture.image).src | resize(1800, 1000)}} 1x, {{ Image(culture.image).src | resize(1850, 1000)}} 2x">
+					<source media="(min-width: 600px)" srcset="{{ Image(culture.image).src | resize(800, 800)}}">
+					<img src="{{ Image(culture.image).src | resize(800, 500) }}" alt="CALX Image" class="darkEl fadeIn"/>
+				</picture>
+			</div>
+		</div>
+	</div>
+	<div class="container mt-px30 d-none d-md-block s--labels">
+		<div class="row">
+			<div class="col-md-4 col-xl-3 col-1">
+				<p class="size14 demi">{{__('Empowered driven people', 'calx')}}</p>
+			</div>
+			<div class="col-md-4 offset-xl-2 col-xl-4 col-xxl-4 pd-left col-2">
+				<p class="size14 demi">{{__('Deep commitment to diversity', 'calx')}}</p>
+			</div>
+			<div class="col-md-4 col-xl-3 text-xxl-right col-3">
+				<p class="size14 demi">{{__('Celebrate success', 'calx')}}</p>
+			</div>
+		</div>
+	</div>
+
+
+	{% set join = post.meta('join_us') %}
+	<div class="s--largetext s--join fade-trigger">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-xl-5">
+					<em class="fadeIn"><strong>{{join.title}}</strong></em>
+
+					<div class="d-none d-md-block mt-px100">
+						<a href="{{ fn('get_permalink', 189) }}" class="moveitUp cta btn-read-more mt">
+							<span>{{ __('CALX Careers', 'calx') }}</span>
+							<svg viewBox="0 0 8.121 13.414" class="arrow"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow" /></svg>
+						</a>
+					</div>
+				</div>
+				<div class="col-12 col-md-8 col-xl-7 pd-left">
+					<p class="fadeIn">
+						{{join.text}}
+					</p>
+
+					<div class="s--enquire">
+						<div class="s--small-text">
+							<span class="opacity-7 fadeIn regular">{{__('Next', 'calx')}}</span>
+						</div>
+						<span class="enquire fadeIn block">
+							<a href="{{ fn('get_permalink', 570) }}" class="demi link--underline cta">{{__('A Saudi Brand', 'calx')}}</a>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

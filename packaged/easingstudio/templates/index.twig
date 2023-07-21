@@ -1,0 +1,118 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+<div class="container mt-px70">
+	<div class="row">
+		<div class="col-12 offset-xl-1 col-xl-10">
+			<h1>{{post.meta('title')}}</h1>
+		</div>
+	</div>
+	<div class="row align-items-end scrollContainer">
+		<div class="col-auto offset-xl-1" style="padding-right:0;">
+			<div class="scroll">
+				<i></i>
+			</div>
+		</div>
+		<div class="col-auto" style="padding-left: 3px;">
+			<small>{{ __("Découvrez notre savoir-faire", "adom") }}</small>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid" data-module="intro">
+	<div class="row no-gutters">
+		<div class="col-12">
+			<picture>
+				<source media="(min-width: 1200px)"
+				srcset="{{ Image(post.cover).src|resize(1500, 900) }}">
+				<source media="(min-width: 768px)"
+				srcset="{{ Image(post.cover).src|resize(1400, 900) }}">
+				<img src="{{Image(post.cover).src|resize(500, 300)}}" alt="Image"/>
+			</picture>
+
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-12 col-md-9 offset-xl-1 col-xl-10">
+			<div data-section="introduction">
+				<h2>{{post.meta('introduction_title')}}</h2>
+				<div class="mt-px20 row justify-content-xl-end">
+					<p class="text col-12 col-xl-6">{{post.meta('introduction_label')}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="container mt-px20">
+	<div class="row">
+		{% for item in post.meta('service_highlight') %}
+			<div class="service--single col-md-6">
+				<svg data-toggle="tooltip" data-placement="top" title="{{item.short_text}}" class="highlighter" width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+					<g fill="none">
+						<circle class="large" cx="29.8" cy="29.8" r="25" style="fill:#D8D8D8"/>
+						<circle class="medium" cx="29.8" cy="29.8" r="18" style="fill:#FFF;"/>
+						<circle class="small" cx="29.8" cy="29.8" r="12.8" fill="#FFF"/>
+					</g>
+				</svg>
+				<picture>
+					<source media="(min-width: 1300px)"
+					srcset="{{ Image(item.image).src|resize(1300, 1600) }}">
+					<source media="(min-width: 768px)"
+					srcset="{{ Image(item.image).src|resize(1000, 800) }}">
+					<img src="{{Image(item.image).src|resize(500, 550)}}" alt="Image"/>
+				</picture>
+				<span>{{item.short_text}}</span>
+
+
+				<a href="{{item.link.url}}" target="{{item.link.target}}"><span>{{item.link.title}}</span> <svg viewBox="0 0 17 12" class="icon-arrow"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow" /></svg></a>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+<div class="oh">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				{% for item in post.meta('content_block') %}
+				<div class="contentblock mt-px20 row no-gutters">
+					<div class="col-12 col-md-6 left-wing">
+						<div class="contentblock--info">
+							<em>{{item.title}}</em>
+							<picture class="d-block d-md-none">
+								<img src="{{Image(item.image).src|resize(460, 380)}}" alt="Image"/>
+							</picture>
+							<div class="mt-px30 text">
+								{{item.description}}
+							</div>
+							<div class="mt-px30">
+								<a href="{{item.link.url}}" target="{{item.link.target}}" class="button-with-arrow"><span>{{item.link.title}}</span> <svg viewBox="0 0 33 33" class="icon-arrow-circle"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow-circle" /></svg></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 d-none d-md-block picture">
+						<picture>
+							<source media="(min-width: 1200px)"
+							srcset="{{ Image(item.image).src|resize(1200, 900) }}">
+							<source media="(min-width: 768px)"
+							srcset="{{ Image(item.image).src|resize(1000, 800) }}">
+							<img src="{{Image(item.image).src|resize(400, 380)}}" alt="Image"/>
+						</picture>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+{% include 'modules/newsletter.twig' %}
+
+
+{% endblock %}

@@ -1,0 +1,71 @@
+
+    <div class="relative">
+        <footer>
+            <div class="container">
+                <div class="row justify-content-center">
+                    {% if post.slug == 'homepage' %}
+                        <div class="col-12 col-md-3 col-xl-4 align-items-center order-md-3">
+                            <a href="{{ fn('get_permalink', 497) }}" class="link--support"><svg viewBox="0 0 31 30" class="icon-support"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#help" /></svg><span>{{ __('Need Help?', 'adom') }}</span></a>
+                        </div>
+                    {% else %}
+                        <div class="col-12 col-md-8 col-lg-3 col-xl-4 align-items-center order-md-3 newsletter">
+                            <form action="{{ newsletterID }}" method="post" id="adom-newsletter" name="adom-newsletter" class="validate" target="_blank" novalidate>
+                                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6fd3d3a55efa51593a710eb82_02259ec937" tabindex="-1" value=""></div>
+
+                                <div class="mc-field-group relative">
+                                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="{{ __("Inscrivez-vous à notre infolettre", "adom") }}">
+                                    <svg viewBox="0 0 17 12" class="icon-arrow"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow" /></svg>
+                                    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                                </div>
+                                <div id="mce-responses" class="clear">
+                                    <div class="response" id="mce-error-response" style="display:none"></div>
+                                    <div class="response" id="mce-success-response" style="display:none"></div>
+                                </div>
+                            </form>
+                        </div>
+                    {% endif %}
+
+                    <div class="col-6 col-md-4 col-xl-2 contacts--info order-md-1">
+                        <a href="tel:{{quebec.phone}}">{{quebec.phone}}</a>
+                        <address>
+                            {{quebec.address}}
+                        </address>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-xl-4 contacts--info order-md-2">
+                        <a href="tel:{{florida.phone}}">{{florida.phone}}</a>
+                        <address>
+                            {{florida.address}}
+                        </address>
+                    </div>
+                    <div class="col-12 col-md-12 order-md-4 col-xl-2 equal-margin-xl">
+                        <ul class="footer--languages">
+                            {% include 'partial/languages-fullnames.twig' %}
+                        </ul>
+                    </div>
+                    <div class="col-12 order-md-5 col-xl-4 equal-margin-xl">
+                        <ul class="socialmedia text-xl-right">
+                            <li>
+                                <a href="{{facebook}}"><svg viewBox="0 0 26 25" class="icon-social"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#facebook" /></svg></a>
+                            </li>
+                            <li>
+                                <a href="{{instagram}}"><svg viewBox="0 0 25 26" class="icon-social"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#instagram" /></svg></a>
+                            </li>
+                            <li>
+                                <a href="{{linkedin}}"><svg viewBox="0 0 25 26" class="icon-social"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#linkedin" /></svg></a>
+                            </li>
+                            <li>
+                                <a href="{{pinterest}}"><svg viewBox="0 0 25 26" class="icon-social"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#pinterest" /></svg></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12 align-self-center text-center order-md-6 order-xl-3 col-xl-4 text-xl-left equal-margin-xl">
+                        <svg viewBox="0 0 146 40" class="logo--small"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#logo" /></svg><small>© Copyright 2020 </small>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <a href="javascript:void(0);" class="up scrollTop text-center">
+            Scroll Top
+        </a>
+    </div>

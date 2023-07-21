@@ -1,0 +1,36 @@
+    <header>
+        <div class="container relative">
+            <div class="row d-flex align-items-center relative justify-content-md-between">
+                <div class="col-12 col-md-12 col-xl-2 text-center text-md-left">
+                    <a href="{{ fn('get_permalink', 8) }}">
+                        <svg viewBox="0 0 146 40" class="logo"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#logo" /></svg>
+                    </a>
+                    <a href="javascript:void(0);" class="menuMobile--button nav_burguer d-xl-none">
+                        <svg viewBox="0 0 28 15" class="icon-menu"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#menu" /></svg>
+                        <svg viewBox="0 0 15 15" class="icon-cross"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#cross" /></svg>
+                    </a>
+                </div>
+
+                <div class="col-md-10 text-right d-none d-xl-inline">
+                    <nav class="nav_content uppercase">
+                        {% include "partial/menu.twig" with {'items': menu.get_items} %}
+                    </nav>
+                </div>
+            </div>
+        </div>
+        {# MENU MOBILE ONLY #}
+        <nav class="nav_content_mobile uppercase d-xl-none">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        {% include "partial/menu.twig" with {'items': menu.get_items} %}
+                    </div>
+                </div>
+            </div>
+            <div class="header-languages">
+                <ul>
+                    {% include 'partial/languages-fullnames.twig' %}
+                </ul>
+            </div>
+        </nav>
+    </header>

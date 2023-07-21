@@ -1,0 +1,150 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+	<div class="container intro js-typed-text">
+		<div class="row">
+			<div class="col-md-5 col-xl-4 col-xxl-3 order-2 order-md-1 d-none d-md-inline-block">
+				<p class="intro--text">{{post.meta('intro').label}}</p>
+			</div>
+
+			<div class="col-md-7 col-xl-6 col-xxl-7 offset-xl-1 offset-xxl-2 pd-left order-1 order-md-2">
+				<div class="row row--inner">
+					<div class="col-xl-12">
+						<h1 class="intro--title">{{post.title}}</h1>
+					</div>
+				</div>
+
+				<em class="intro--subtitle letters">{{post.meta('intro').title}}</em>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container slideUp s-strategy reveal-header s--intro">
+		<div class="row ltr">
+			<div class="col-md-5 col-xl-5 d-none d-md-inline-flex">
+				<p class="size14 opacity-7 demi">{{__('CALX Consulting – Saudi Arabia', 'calx')}}</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-12 relative oh">
+				<div class="panel"></div>
+				<picture>
+					<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(post.meta('intro').image).src|resize(1800, 1200)|towebp}} 1x, {{ Image(post.meta('intro').image).src|resize(1850, 1200)|towebp}} 2x">
+					<source media="(min-width: 1200px)" srcset="{{ Image(post.meta('intro').image).src | resize(1800, 1000)}} 1x, {{ Image(post.meta('intro').image).src | resize(1850, 1000)}} 2x">
+					<source media="(min-width: 600px)" srcset="{{ Image(post.meta('intro').image).src | resize(800, 800)}}">
+					<img src="{{ Image(post.meta('intro').image).src | resize(600, 400) }}" alt="CALX Intro Image" class="intro--picture darkEl" />
+				</picture>
+			</div>
+		</div>
+	</div>
+
+	<div class="container mt-px30 d-none d-md-block s--labels">
+		<div class="row">
+			<div class="col-md-4 col-xl-3 col-1">
+				<p class="size14 demi">{{__('Family-oriented culture', 'calx')}}</p>
+			</div>
+			<div class="col-md-4 offset-xl-2 col-xl-4 col-xxl-4 pd-left col-2">
+				<p class="size14 demi">{{__('Teamwork', 'calx')}}</p>
+			</div>
+			<div class="col-md-4 col-xl-3 text-xxl-right col-3">
+				<p class="size14 demi">{{__('Diversity', 'calx')}}</p>
+			</div>
+		</div>
+	</div>
+
+
+
+	{% set blockquote = post.meta('blockquote') %}
+	<div class="container-fluid oh s-careers--quote">
+		<div class="row d-flex flex-nowrap justify-content-center">
+			<div class="col-auto text-center relative">
+				<blockquote class="js-parallax" data-parallax='{"x": 250, "smoothness": 20}'>
+					{{blockquote.first_line}}
+				</blockquote>
+				<blockquote class="js-parallax-reverse" data-parallax='{"x": -150, "smoothness": 10}'>
+					{{blockquote.second_line}}
+				</blockquote>
+			</div>
+		</div>
+	</div>
+
+
+	{% set journey = post.meta('journey') %}
+	<div class="container s--largetext fade-trigger s-careers--journey">
+		<div class="row">
+			<div class="col-md-4 col-xl-5">
+				<em class="fadeIn">{{journey.title}}</em>
+			</div>
+			<div class="col-12 col-md-8 col-xl-7 pd-left">
+				<p class="fadeIn">
+					{{journey.text}}
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="container showIMG--triger">
+		<div class="row d-flex s--fluid-image relative">
+			<div class="col-12 relative">
+				<div class="cortains">
+					<div class="cortains--left"></div>
+					<div class="cortains--right"></div>
+				</div>
+				<picture>
+					<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(journey.image).src|resize(1800, 1000|towebp)}} 1x, {{ Image(journey.image).src|resize(1850, 1000)|towebp}} 2x">
+					<source media="(min-width: 1200px)" srcset="{{ Image(journey.image).src | resize(1800, 1000)}} 1x, {{ Image(journey.image).src | resize(1850, 1000)}} 2x">
+					<source media="(min-width: 600px)" srcset="{{ Image(journey.image).src | resize(800, 800)}}">
+					<img src="{{ Image(journey.image).src | resize(800, 500) }}" alt="CALX Image" class="darkEl fadeIn"/>
+				</picture>
+			</div>
+		</div>
+	</div>
+	<div class="container mt-px30 d-none d-md-block s--labels">
+		<div class="row">
+			<div class="col-md-4 col-xl-3 col-1">
+				<p class="size14 demi">{{__('Building people', 'calx')}}</p>
+			</div>
+			<div class="col-md-4 offset-xl-2 col-xl-4 col-xxl-4 pd-left col-2">
+				<p class="size14 demi">{{__('Experience', 'calx')}}</p>
+			</div>
+			<div class="col-md-4 col-xl-3 text-xxl-right col-3">
+				<p class="size14 demi">{{__('Training', 'calx')}}</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container s-careers--form fadeForm">
+		<div class="row">
+			<div class="col-md-4 col-xl-5">
+				<em class="fadeIn mainTitle">{{ __('Contact us', 'calx') }}</em>
+
+				<div class="mt-px60">
+					<em class="fadeIn">{{ __('Email', 'calx') }}</em>
+					<p><a href="mailto:contact@calx.co" class="link--underline cta">contact@calx.co</a></p>
+				</div>
+
+				<div class="mt-px40">
+					<em class="fadeIn">{{ __('Follow us', 'calx') }}</em>
+					<p><a href="{{linkedin}}" target="_blank" class="link--underline cta">Linkedin</a></p>
+				</div>
+			</div>
+
+
+			<div class="col-12 col-md-8 col-xl-7 pd-left">
+				<em class="formTitle letters">{{__('Be part of the team', 'calx')}}</em>
+
+				<div class="s-careers--contact-form-inputs relative">
+					{% filter shortcodes %}
+						[contact-form-7 id="5" title="Calx — Contact Form"]
+					{% endfilter %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}

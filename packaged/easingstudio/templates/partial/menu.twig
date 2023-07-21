@@ -1,0 +1,35 @@
+{% if menu %}
+	<ul class="menu">
+		{% for item in items %}
+		<li class="{{ item.classes | join(' ') }}">
+			<a class="nav-main-link" href="{{ item.link }}">{{ item.title }} {% if item.children %}<svg viewBox="0 0 11 7" class="icon-arrow-down d-none d-lg-inline"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow-down" /></svg>{% endif %}</a>
+			{% if item.children %}
+            	<div class="large-menu d-none d-lg-block">
+					<div class="container">
+						<div class="row d-flex justify-content-center sub-items">
+							{% for child in item.children %}
+							<div class="col-auto">
+								<a class="nav-main-link" href="{{ child.link }}">
+									{% if child.master_object.logoproduct %}
+										<img src="{{Image(child.master_object.logoproduct).src}}" alt="Image" class="logoproduct"/>
+									{% else %}
+										<span>{{ child.title }}</span>
+									{% endif %}
+
+									<img src="{{Image(child.master_object.meta('thumbnail')).src|resize(400, 380)}}" alt="Image" class="cover_image"/>
+								</a>
+							</div>
+							{% endfor %}
+						</div>
+						<div class="row d-flex justify-content-center mt-px20">
+							<div class="col-auto">
+								<a href="{{item.link }}" class="link-shortlink">{{ __("All", "adom") }} {{item.title}}</a>
+							</div>
+						</div>
+					</div>
+            	</div>
+            {% endif %}
+		</li>
+		{% endfor %}
+	</ul>
+{% endif %}

@@ -1,0 +1,69 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+<div class="mt-px70">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 col-xl-10">
+				<div class="row" data-section="project-intro">
+					<div class="col-12">
+						<h1>
+							<strong>{{post.meta('title')}}</strong>
+						</h1>
+						<p>{{post.meta('short_text')}}</p>
+					</div>
+				</div>
+				<div class="row mt-px20 align-items-center" data-modules="list-categories">
+					<div class="col-auto">
+						<span>{{ __("Choisissez une catégorie", "adom") }}</span>
+					</div>
+					<div class="col-12 col-xl-auto">
+						<ul>
+							{% for slug, item in categories %}
+							<li>
+								<a href="javascript:void(0);" data-filter="{{item.name|sanitize}}" {% if slug == 0 %}class="active"{% endif %}>{{item.name}}</a>
+							</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container list-projects">
+	<div class="row">
+		{% for item in projects %}
+			<div class="mt-px20 col-12 col-md-6 col-lg-4 col-xl-4 single-project{% for item in item.categories %} {{item.name|sanitize}}{% endfor %}">
+				<a href="{{ fn('get_permalink', item.ID) }}" class="block">
+					<picture>
+						<source media="(min-width: 1200px)"
+						srcset="{{ Image(item.cover_image).src|resize(1000, 700) }}">
+						<source media="(min-width: 768px)"
+						srcset="{{ Image(item.cover_image).src|resize(1000, 800) }}">
+						<img src="{{Image(item.cover_image).src|resize(500, 600)}}" alt="Image"/>
+					</picture>
+				</a>
+				<div class="col-12">
+					<a href="{{ fn('get_permalink', item.ID) }}" class="block project-label">
+						<div class="row justify-content-between d-flex align-items-center">
+							<div class="col-auto">
+								<em class="lato-bold">{{item.title}}</em>
+							</div>
+							<div class="col-auto">
+								<svg viewBox="0 0 33 33" class="icon-arrow-circle"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow-circle" /></svg>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+<div class="mt-px40">
+	{% include 'modules/cta-contacts.twig' %}
+</div>
+
+{% endblock %}

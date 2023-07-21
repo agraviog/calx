@@ -1,0 +1,316 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+	<div class="container intro js-typed-text">
+		<div class="row">
+			<div class="col-md-5 col-xl-4 col-xxl-3 order-2 order-md-1">
+				<p class="intro--text">{{post.meta('intro').label}}</p>
+			</div>
+
+			<div class="col-md-7 col-xl-6 col-xxl-7 offset-xl-1 offset-xxl-2 pd-left order-1 order-md-2">
+				<div class="row row--inner">
+					<div class="col-xl-8">
+						<h1 class="intro--title">{{post.title}}</h1>
+					</div>
+				</div>
+
+				<em class="intro--subtitle letters">{{post.meta('intro').title}}</em>
+
+				<div class="row row--inner mt-px40 slideUp">
+					<div class="col-12 col-xl-5">
+						<p class="opacity-7 fadeIn">{{post.meta('intro').content.column_one}}</p>
+					</div>
+					<div class="col-12 col-xl-5 offset-xl-1">
+						<p class="opacity-7 fadeIn">{{post.meta('intro').content.column_two}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container slideUp s-strategy reveal-header s--intro">
+		<div class="row">
+			<div class="col-12 d-none d-md-inline-flex">
+				<p class="size14 opacity-7 demi">{{__('CALX Consulting – Saudi Arabia', 'calx')}}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 relative oh">
+				<div class="panel"></div>
+				<picture>
+					<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(post.meta('intro').image).src|resize(1800, 1000|towebp)}} 1x, {{ Image(post.meta('intro').image).src|resize(1850, 1000)|towebp}} 2x">
+					<source media="(min-width: 1200px)" srcset="{{ Image(post.meta('intro').image).src | resize(1800, 1000)}} 1x, {{ Image(post.meta('intro').image).src | resize(1850, 1000)}} 2x">
+					<source media="(min-width: 600px)" srcset="{{ Image(post.meta('intro').image).src | resize(800, 800)}}">
+					<img src="{{ Image(post.meta('intro').image).src | resize(600, 400) }}" alt="CALX Intro Image" class="intro--picture darkEl" />
+				</picture>
+			</div>
+		</div>
+	</div>
+
+	<div class="container mt-px30 d-none d-md-block s--labels">
+		<div class="row">
+			<div class="col-md-4 col-xl-3 col-1">
+				<p class="size14 demi">{{__('CALX Global Partnership', 'calx')}}</p>
+			</div>
+			<div class="col-md-4 offset-xl-2 col-xl-4 col-xxl-4 pd-left col-2">
+				<p class="size14 demi">{{__('Deep commitment to diversity', 'calx')}}</p>
+			</div>
+			<div class="col-md-4 col-xl-3 text-xxl-right col-3">
+				<p class="size14 demi">{{__('Making positive social impact', 'calx')}}</p>
+			</div>
+		</div>
+	</div>
+
+
+	{% set corporate = post.meta('corporate_strategy') %}
+	<div class="container s--largetext fade-trigger s-strategy--corporate">
+		<div class="row">
+			<div class="col-md-4 col-xl-5">
+				<em class="fadeIn">{{corporate.title}}</em>
+			</div>
+			<div class="col-12 col-md-8 col-xl-7 pd-left">
+				<p class="fadeIn">
+					{{corporate.text}}
+				</p>
+
+				<ul class="list">
+					{% for item in corporate.items %}
+					<li class="fadeIn">
+						<svg viewBox="0 0 29.738 30.00"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#favicon" /></svg>
+						<span class="block">
+							{{item.text}}
+						</span>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	{% set organization = post.meta('organization') %}
+	<div class="s--largetext s-strategy--organization fade-trigger">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-xl-5">
+					<em class="fadeIn">{{organization.title}}</em>
+				</div>
+				<div class="col-12 col-md-8 col-xl-7 pd-left">
+					<p class="fadeIn">
+						{{organization.text}}
+					</p>
+
+					<ul class="list">
+						{% for item in organization.items %}
+						<li class="fadeIn">
+							<svg viewBox="0 0 29.738 30.00"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#favicon" /></svg>
+							<span class="block">
+								{{item.text}}
+							</span>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{% set blockquote = post.meta('blockquote') %}
+	<div class="container-fluid oh">
+		<div class="row d-flex flex-nowrap justify-content-center">
+			<div class="col-auto text-center relative">
+				<blockquote class="js-parallax" data-parallax='{"x": 250, "smoothness": 20}'>
+					{{blockquote.first_line}}
+				</blockquote>
+				<blockquote class="js-parallax-reverse" data-parallax='{"x": -150, "smoothness": 10}'>
+					{{blockquote.second_line}}
+				</blockquote>
+			</div>
+		</div>
+	</div>
+
+
+
+	{% set business = post.meta('business_transformation') %}
+	<div class="s--largetext s-strategy--business fade-trigger">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-xl-5">
+					<em class="fadeIn">{{business.title|striptags('<p><br><strong>')}}</em>
+				</div>
+				<div class="col-12 col-md-8 col-xl-7 pd-left">
+					<p class="fadeIn">
+						{{business.text}}
+					</p>
+
+					<div class="row s--small-text">
+						<div class="col-xl-5 fadeIn">
+							<p class="smalltext opacity-7">
+								{{business.column_one_text}}
+							</p>
+						</div>
+						<div class="col-xl-5 offset-xl-1 fadeIn">
+							<p class="smalltext opacity-7">
+								{{business.column_two_text}}
+							</p>
+						</div>
+					</div>
+
+					<p class="fadeIn subtext">
+						{{business.subtext}}
+					</p>
+
+					<ul class="list">
+						{% for item in business.items %}
+						<li class="fadeIn">
+							<svg viewBox="0 0 29.738 30.00"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#favicon" /></svg>
+							<span class="block">
+								{{item.text}}
+							</span>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container showIMG--triger">
+		<div class="row d-flex s--fluid-image relative">
+			<div class="col-12 relative">
+				<div class="cortains">
+					<div class="cortains--left"></div>
+					<div class="cortains--right"></div>
+				</div>
+				<picture>
+					<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(business.image).src|resize(1800, 1000|towebp)}} 1x, {{ Image(business.image).src|resize(1850, 1000)|towebp}} 2x">
+					<source media="(min-width: 1200px)" srcset="{{ Image(business.image).src | resize(1800, 1000)}} 1x, {{ Image(business.image).src | resize(1850, 1000)}} 2x">
+					<source media="(min-width: 600px)" srcset="{{ Image(business.image).src | resize(800, 800)}}">
+					<img src="{{ Image(business.image).src | resize(700, 600) }}" alt="CALX About Us Image" class="darkEl fadeIn"/>
+				</picture>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container mt-px30 d-none d-md-block">
+		<div class="row">
+			<div class="col-md-4 col-xl-3 col-1">
+				<p class="size14 demi">{{__('CALX Global Partnership', 'calx')}}</p>
+			</div>
+			<div class="col-md-4 offset-xl-2 col-xl-4 col-xxl-4 pd-left col-2">
+				<p class="size14 demi">{{__('Deep commitment to diversity', 'calx')}}</p>
+			</div>
+			<div class="col-md-4 col-xl-3 text-xxl-right col-3">
+				<p class="size14 demi">{{__('Making positive social impact', 'calx')}}</p>
+			</div>
+		</div>
+	</div>
+
+
+	{% set business_winning = post.meta('business_winning') %}
+	<div class="s--largetext s-strategy--business-winning fade-trigger">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-xl-5">
+					<em>{{business_winning.title|striptags('<p><br><strong>')}}</em>
+				</div>
+				<div class="col-12 col-md-8 col-xl-7 pd-left">
+					<p class="fadeIn">
+						{{business_winning.text}}
+					</p>
+
+					<div class="row s--small-text">
+						<div class="col-xl-5 fadeIn">
+							<p class="smalltext opacity-7">
+								{{business_winning.column_one_text}}
+							</p>
+						</div>
+						<div class="col-xl-5 offset-xl-1 fadeIn">
+							<p class="smalltext opacity-7">
+								{{business_winning.column_two_text}}
+							</p>
+						</div>
+					</div>
+
+					<p class="fadeIn subtext">
+						{{business_winning.subtext}}
+					</p>
+
+					<ul class="list">
+						{% for item in business_winning.items %}
+						<li class="fadeIn">
+							<svg viewBox="0 0 29.738 30.00"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#favicon" /></svg>
+							<span class="block">
+								{{item.text}}
+							</span>
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	{% set blockquotescnd = post.meta('blockquote_middle') %}
+	<div class="container-fluid oh">
+		<div class="row d-flex flex-nowrap justify-content-center">
+			<div class="col-auto text-center relative">
+				<blockquote class="js-parallax" data-parallax='{"x": 200, "smoothness": 20}'>
+					{{blockquotescnd.first_line}}
+				</blockquote>
+				<blockquote class="js-parallax-reverse" data-parallax='{"x": -150, "smoothness": 10}'>
+					{{blockquotescnd.second_line}}
+				</blockquote>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	{% set advisory = post.meta('advisory') %}
+	<div class="s--largetext s-strategy--advisory fade-trigger">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-xl-5">
+					<em class="fadeIn">{{advisory.title}}</em>
+				</div>
+				<div class="col-12 col-md-8 col-xl-7 pd-left">
+					<p class="fadeIn">
+						{{advisory.text}}
+					</p>
+
+					<div class="row s--small-text">
+						<div class="col-xl-5 fadeIn">
+							<p class="smalltext opacity-7">
+								{{advisory.column_one}}
+							</p>
+						</div>
+						<div class="col-xl-5 offset-xl-1 fadeIn">
+							<p class="smalltext opacity-7">
+								{{advisory.column_two}}
+							</p>
+						</div>
+					</div>
+
+
+					<div class="s--enquire">
+						<div class="s--small-text">
+							<span class="opacity-7 fadeIn medium">{{__('Interested?', 'calx')}}</span>
+						</div>
+						<span class="enquire fadeIn mt-px10 block">
+							<a href="{{ fn('get_permalink', 194) }}" class="link--underline cta demi">{{__('Make an Enquiry', 'calx')}}</a>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

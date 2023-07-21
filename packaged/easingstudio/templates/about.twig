@@ -1,0 +1,213 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+<div class="container-fluid mt-px50" data-section="common--intro">
+	<div class="row no-gutters align-items-center">
+		<div class="col-6 col-md-4 col-xl-4 textmask">
+			<svg viewBox="0 0 326 376" class="icon-a"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#a" /></svg>
+			<h1 class="uppercase">{{post.meta('title')}}</h1>
+			<div class="d-none d-lg-block text">{{post.meta('short_text')}}</div>
+		</div>
+		<div class="col-6 col-md-8 col-xl-8">
+			<picture>
+				<source media="(min-width: 1200px)"
+				srcset="{{ Image(post.cover_image).src|resize(1600, 1000) }}">
+				<source media="(min-width: 768px)"
+				srcset="{{ Image(post.cover_image).src|resize(1000, 800) }}">
+				<img src="{{Image(post.cover_image).src|resize(200, 300)}}" alt="Image"/>
+			</picture>
+
+		</div>
+	</div>
+</div>
+
+<div class="container customcontainer">
+	<div class="row">
+		<div class="col-12 text-md-center">
+			<div data-section="introduction">
+				<div class="row justify-content-center">
+					<div class="col-12 col-md-8 col-xl-5">
+						<h2>{{post.meta('introduction_title')}}</h2>
+						<div class="mt-px20">
+							<p class="text">{{post.meta('introduction_text')}}</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="row justify-content-center">
+					<div class="col-12 col-md-10 col-xl-8">
+						<div class="row">
+							<div class="col-12 order-1 col-md-6 col-xl-6">
+								<div class="content-block-one">
+									<div class="mt-px20 text-center">
+										<svg viewBox="0 0 65 53" class="icon-home"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#home" /></svg>
+									</div>
+
+									<div class="mt-px10 toggle-text text-md-left">
+										<span class="block text-center">{{ post.meta('about_us_block').title }}</span>
+										<p class="text-toggled text-xl-left" data-fullText="{{ post.meta('about_us_block').text|striptags}}" data-shortText="{{ post.meta('about_us_block').text|truncate(13) }}">{{ post.meta('about_us_block').text|truncate(13) }}</p>
+
+										<a href="javascript:void(0);" class="read-more toggle-read" data-plus="{{ __("Read More", "adom") }}" data-less="{{ __("Read Less", "adom") }}">{{ __("Read More", "adom") }}</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-12 order-0 col-md-6 col-xl-6">
+								<div class="content-block-two">
+									<div class="mt-px20 text-center">
+										<svg viewBox="0 0 70 48" class="icon-team"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#team" /></svg>
+									</div>
+									<div class="mt-px10 toggle-text text-md-left">
+										<span class="block text-center">{{ post.meta('about_us_block_scnd').title }}</span>
+										<p class="text-toggled" data-fullText="{{ post.meta('about_us_block_scnd').text|striptags}}" data-shortText="{{ post.meta('about_us_block_scnd').text|truncate(13) }}">{{ post.meta('about_us_block_scnd').text|truncate(13) }}</p>
+
+										<a href="javascript:void(0);" class="read-more toggle-read" data-plus="{{ __("Read More", "adom") }}" data-less="{{ __("Read Less", "adom") }}">{{ __("Read More", "adom") }}</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			{% for item in post.meta('service_highlight') %}
+				<div class="service--single no-gutters">
+					<picture>
+						<source media="(min-width: 1200px)"
+						srcset="{{ Image(item.image).src|resize(1200, 750) }} 1x, {{ Image(post.image).src|retina(1) }} 2x">
+						<source media="(min-width: 768px)"
+						srcset="{{ Image(item.image).src|resize(1000, 800) }} 1x, {{ Image(post.image).src|resize(1000, 1000) }} 2x">
+						<img src="{{Image(item.image).src|resize(400, 380)}}" alt="Image"/>
+					</picture>
+					<span>{{item.short_text}}</span>
+
+
+					<a href="{{item.link.url}}" target="{{item.link.target}}"><span>{{item.link.title}}</span> <svg viewBox="0 0 17 12" class="icon-arrow"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow" /></svg></a>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+
+
+<div class="oh">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				{% for item in post.meta('content_block') %}
+				<div class="contentblock mt-px20 row no-gutters">
+					<div class="col-12 col-md-6 left-wing">
+						<div class="contentblock--info">
+							<em>{{item.title}}</em>
+							<picture class="d-block d-md-none">
+								<img src="{{Image(item.image).src|resize(460, 380)}}" alt="Image"/>
+							</picture>
+							<div class="mt-px30 text">
+								{{item.text}}
+							</div>
+							{% if item.link %}
+							<div class="mt-px100">
+								<a href="{{item.link.url}}" target="{{item.link.target}}" class="button-with-arrow"><span>{{item.link.title}}</span> <svg viewBox="0 0 33 33" class="icon-arrow-circle"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow-circle" /></svg></a>
+							</div>
+							{% endif %}
+						</div>
+					</div>
+					<div class="col-md-6 d-none d-md-block picture">
+						<picture>
+							<source media="(min-width: 1200px)"
+							srcset="{{ Image(item.image).src|resize(1000, 650) }}">
+							<source media="(min-width: 768px)"
+							srcset="{{ Image(item.image).src|resize(1000, 800) }}">
+							<img src="{{Image(item.image).src|resize(400, 380)}}" alt="Image"/>
+						</picture>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="container" data-section="product--intro">
+	<div class="row">
+		<div class="col-12 text-center">
+			<em>{{ __("Des produits <strong>d’excellence</strong>", "adom") }}</em>
+		</div>
+	</div>
+	<div class="row">
+		{% for item in products %}
+		<div class="col-6 col-xl-3 mt-px10">
+			<a href="{{ fn('get_permalink', item.ID) }}">
+				<div class="single-product--thumb relative">
+					<picture>
+						<source media="(min-width: 1200px)"
+						srcset="{{ Image(item.meta('thumbnail')).src|resize(1000, 800) }}">
+						<source media="(min-width: 768px)"
+						srcset="{{ Image(item.meta('thumbnail')).src|resize(1000, 800) }}">
+						<img src="{{Image(item.meta('thumbnail')).src|resize(400, 380)}}" alt="Image"/>
+					</picture>
+					<span><strong>{{item.title}}</strong></span>
+
+					<span class="button-with-arrow"><svg viewBox="0 0 33 33" class="icon-arrow-circle"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow-circle" /></svg></span>
+				</div>
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+
+
+<div data-section="partners">
+	<div class="container">
+		<div class="row align-items-center justify-content-center">
+			<div class="col-12 col-md-10 text-md-center text-lg-left col-xl-5">
+				<div class="row justify-content-center">
+					<div class="col-10 col-xl-7">
+						<em>{{ __("<strong>Partenaires</strong> pour des projets à <strong>grand déploiement.</strong>", "adom") }}</em>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-12 col-md-7 col-xl-4">
+				<div class="row align-items-center justify-content-center text-center">
+					<div class="col-6 col-xl-6">
+						<a href="#" class="partner align-self-center d-flex text-center justify-content-center">
+							<img src="{{ site.theme.link }}/dist/assets/images/partners/nature.jpg" alt="Partner">
+						</a>
+					</div>
+					<div class="col-6 col-xl-6">
+						<a href="#" class="partner align-self-center d-flex text-center justify-content-center">
+							<img src="{{ site.theme.link }}/dist/assets/images/partners/brain.jpg" alt="Partner">
+						</a>
+					</div>
+					<div class="col-6 col-xl-6">
+						<a href="#" class="partner align-self-center d-flex text-center justify-content-center">
+							<img src="{{ site.theme.link }}/dist/assets/images/partners/boivin.jpg" alt="Partner">
+						</a>
+					</div>
+					<div class="col-6 col-xl-6">
+						<a href="#" class="partner align-self-center d-flex text-center justify-content-center">
+							<img src="{{ site.theme.link }}/dist/assets/images/partners/groupe.jpg" alt="Partner">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% include 'modules/cta-collaboration.twig' %}
+
+
+{% endblock %}

@@ -1,0 +1,345 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+	<div class="container intro js-typed-text">
+		<div class="row">
+			<div class="col-md-5 col-xl-4 col-xxl-3 order-2 order-md-1 d-none d-md-inline-block">
+				<p class="intro--text">{{post.meta('intro').label}}</p>
+			</div>
+
+			<div class="col-11 col-md-7 col-xl-6 col-xxl-6 offset-xl-1 offset-xxl-2 pd-left order-1 order-md-2">
+				<div class="row row--inner">
+					<div class="col-xl-9">
+						<h1 class="intro--title">{{post.title}}</h1>
+					</div>
+				</div>
+
+				<em class="intro--subtitle letters">{{post.meta('intro').title}}</em>
+
+				<div class="row row--inner mt-px40 slideUp">
+					<div class="col-md-10">
+						<p class="opacity-7 fadeIn">{{post.meta('intro').content.column_one}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container mt-px40 d-none d-md-block">
+		<div class="row ltr">
+			<div class="col-md-4 col-xl-3">
+				<p class="size14 colorized demi opacity-7">{{__('CALX Consulting', 'calx')}}</p>
+			</div>
+		</div>
+	</div>
+	<div class="container slideUp s-strategy reveal-header s--intro">
+		<div class="row">
+			<div class="col-12 relative oh">
+				<div class="panel"></div>
+				<picture>
+					<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(post.meta('intro').image).src|resize(1800, 1200)|towebp}} 1x, {{ Image(post.meta('intro').image).src|resize(1850, 1200)|towebp}} 2x">
+					<source media="(min-width: 1200px)" srcset="{{ Image(post.meta('intro').image).src | resize(1800, 1000)}} 1x, {{ Image(post.meta('intro').image).src | resize(1850, 1000)}} 2x">
+					<source media="(min-width: 600px)" srcset="{{ Image(post.meta('intro').image).src | resize(800, 800)}}">
+					<img src="{{ Image(post.meta('intro').image).src | resize(600, 400) }}" alt="CALX Intro Image" class="intro--picture darkEl" />
+				</picture>
+			</div>
+		</div>
+	</div>
+
+	<div class="container mt-px30 d-none d-md-block s--labels">
+		<div class="row">
+			<div class="col-md-4 col-xl-3 col-1">
+				<p class="size14 demi colorized">{{__('Power of innovation', 'calx')}}</p>
+			</div>
+			<div class="col-md-4 offset-xl-2 col-xl-4 col-xxl-4 pd-left col-2">
+				<p class="size14 demi colorized">{{__('Regional benchmark', 'calx')}}</p>
+			</div>
+			<div class="col-md-4 col-xl-3 text-xxl-right col-3">
+				<p class="size14 demi colorized">{{__('Empowered team', 'calx')}}</p>
+			</div>
+		</div>
+	</div>
+
+
+	{% set chairman = post.meta('chairman') %}
+	<div class="container slideUp s-strategy reveal-header s--intro s--chairman js-typed-text">
+		<div class="row d-flex align-items-end justify-content-end">
+			<div class="col-12 col-xl-6 col-xxl-7 offset-xl-1 offset-xxl-1 pd-left">
+				<p>{{chairman.text}}</p>
+
+				<em>
+					<svg viewBox="0 0 167.5 122" class="quote"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#quote" /></svg>
+					<div class="letters">
+						{{chairman.quote}}
+					</div>
+				</em>
+
+				<div class="author row">
+					<div class="col-12">
+						<strong>{{ __('Khalid Khowaiter', 'calx') }}</strong>
+						<span>{{__('Chairman', 'calx')}} - CALX</span>
+					</div>
+					<div class="col-121">
+						<hr>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="container showIMG--triger">
+		<div class="row d-flex s--fluid-image relative">
+			<div class="col-12 relative">
+				<div class="cortains">
+					<div class="cortains--left"></div>
+					<div class="cortains--right"></div>
+				</div>
+				<picture>
+					<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(chairman.image).src|resize(1800, 1000|towebp)}} 1x, {{ Image(chairman.image).src|resize(1850, 1000)|towebp}} 2x">
+					<source media="(min-width: 1200px)" srcset="{{ Image(chairman.image).src | resize(1800, 1000)}} 1x, {{ Image(chairman.image).src | resize(1850, 1000)}} 2x">
+					<source media="(min-width: 600px)" srcset="{{ Image(chairman.image).src | resize(800, 800)}}">
+					<img src="{{ Image(chairman.image).src | resize(800, 700) }}" alt="CALX Image" class="darkEl fadeIn"/>
+				</picture>
+			</div>
+		</div>
+	</div>
+	<div class="container mt-px30 d-none d-md-block s--labels">
+		<div class="row">
+			<div class="col-md-4 col-xl-3 col-1">
+				<p class="size14 demi">{{__('Kingdom first', 'calx')}}</p>
+			</div>
+			<div class="col-md-4 offset-xl-2 col-xl-4 col-xxl-4 pd-left col-2">
+				<p class="size14 demi">{{__('Client at heart', 'calx')}}</p>
+			</div>
+			<div class="col-md-4 col-xl-3 text-xxl-right col-3">
+				<p class="size14 demi">{{__('Wechairman', 'calx')}}</p>
+			</div>
+		</div>
+	</div>
+
+
+
+	{% set blockquote = post.meta('blockquote') %}
+	<div class="container-fluid oh s-purpose--blockquote">
+		<div class="row d-flex flex-nowrap justify-content-center">
+			<div class="col-auto text-center relative">
+				<blockquote class="js-parallax" data-parallax='{"x": -300, "smoothness": 20}'>
+					{{blockquote.first_line}}
+				</blockquote>
+				<blockquote class="js-parallax-reverse" data-parallax='{"x": 150, "smoothness": 10}'>
+					{{blockquote.second_line}}
+				</blockquote>
+			</div>
+		</div>
+	</div>
+
+
+	{% set core = post.meta('core_values') %}
+	<div class="container s--largetext fade-trigger s-purpose--core">
+		<div class="row">
+			<div class="col-md-4 col-xl-5">
+				<em class="fadeIn">{{core.title}}</em>
+			</div>
+			<div class="col-12 col-md-8 col-xl-7 pd-left">
+				<p class="fadeIn">
+					{{core.text}}
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container s-purpose">
+		<div class="row">
+			<div class="col-12 swiper-container x-slider d-flex">
+				<div class="swiper-wrapper d-flex justify-content-start align-items-start">
+					{% for item in core.items %}
+						<div class="swiper-slide relative">
+							<div class="inner">
+								<img src="{{ Image(item.icon).src }}" alt="{{item.title}} Icon">
+								<div>
+									<em>{{item.title}}</em>
+									<p class="truncated">{{item.text|truncate(16)}}</p>
+									<p class="full">{{item.text}}</p>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+				<!-- If we need navigation buttons -->
+				<div class="button-prev cta d-none d-md-inline-block">
+					<svg data-name="Button Right - Active" viewBox="0 0 39 39">
+						<g fill="none" stroke="#292929" stroke-miterlimit="10" stroke-width="2">
+							<circle cx="19.5" cy="19.5" r="19.5" stroke="none"/>
+							<circle cx="19.5" cy="19.5" r="18.5"/>
+						</g>
+						<path fill="none" stroke="#292929" stroke-miterlimit="10" stroke-width="2" d="M0,0,6.486,6.486,0,12.971" data-name="Path 3" transform="translate(16.545 13)"/>
+					</svg>
+				</div>
+				<div class="button-next cta d-none d-md-inline-block">
+					<svg data-name="Button Right - Active" viewBox="0 0 39 39">
+						<g fill="none" stroke="#292929" stroke-miterlimit="10" stroke-width="2">
+							<circle cx="19.5" cy="19.5" r="19.5" stroke="none"/>
+							<circle cx="19.5" cy="19.5" r="18.5"/>
+						</g>
+						<path fill="none" stroke="#292929" stroke-miterlimit="10" stroke-width="2" d="M0,0,6.486,6.486,0,12.971" data-name="Path 3" transform="translate(16.545 13)"/>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% set ethics = post.meta('ethics') %}
+	<div class="container s--largetext fade-trigger s-purpose--ethics">
+		<div class="row">
+			<div class="col-md-4 col-xl-5">
+				<em class="fadeIn">{{ethics.title}}</em>
+
+				<p class="smalltext opacity-7 mt-px20 fadeIn">{{ethics.label}}</p>
+			</div>
+			<div class="col-12 col-md-8 col-xl-7 pd-left">
+				<p class="fadeIn">
+					{{ethics.text}}
+				</p>
+				<p class="smalltext opacity-7 fadeIn mt-px30">
+					{{ethics.extra}}
+				</p>
+			</div>
+		</div>
+	</div>
+
+	{% set difference = post.meta('difference') %}
+	<div class="container s--largetext fade-trigger s-purpose--difference">
+		<div class="row">
+			<div class="col-md-4 col-xl-5">
+				<em class="fadeIn">{{difference.title}}</em>
+
+				<p class="mediumtext opacity-7 mt-px20 fadeIn demiBold">{{difference.label}}</p>
+			</div>
+			<div class="col-12 col-md-8 col-xl-7 pd-left">
+				<p class="fadeIn">
+					{{difference.text}}
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="container showIMG--triger">
+		<div class="row d-flex s--fluid-image relative">
+			<div class="col-12 relative">
+				<div class="cortains">
+					<div class="cortains--left"></div>
+					<div class="cortains--right"></div>
+				</div>
+				<picture>
+					<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(difference.image).src|resize(1800, 1000|towebp)}} 1x, {{ Image(difference.image).src|resize(1850, 1000)|towebp}} 2x">
+					<source media="(min-width: 1200px)" srcset="{{ Image(difference.image).src | resize(1800, 1000)}} 1x, {{ Image(difference.image).src | resize(1850, 1000)}} 2x">
+					<source media="(min-width: 600px)" srcset="{{ Image(difference.image).src | resize(800, 800)}}">
+					<img src="{{ Image(difference.image).src | resize(800, 500) }}" alt="CALX Image" class="darkEl fadeIn"/>
+				</picture>
+			</div>
+		</div>
+	</div>
+	<div class="container mt-px30 d-none d-md-block s--labels">
+		<div class="row">
+			<div class="col-md-4 col-xl-3 col-1">
+				<p class="size14 demi">{{__('Customer centered', 'calx')}}</p>
+			</div>
+			<div class="col-md-4 offset-xl-2 col-xl-4 col-xxl-4 pd-left col-2">
+				<p class="size14 demi">{{__('Value driven', 'calx')}}</p>
+			</div>
+			<div class="col-md-4 col-xl-3 text-xxl-right col-3">
+				<p class="size14 demi">{{__('Ambidextrous', 'calx')}}</p>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	{% set value_driven = post.meta('value_driven') %}
+	<div class="container s--largetext fade-trigger s-purpose--standard-module">
+		<div class="row justify-content-end">
+			<div class="col-12 col-md-8 col-xl-7 pd-left">
+				<em class="fadeIn">{{value_driven.title}}</em>
+				<p class="fadeIn mt-px30">
+					{{value_driven.text}}
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="container showIMG--triger">
+		<div class="row d-flex s--fluid-image relative">
+			<div class="col-12 relative">
+				<div class="cortains">
+					<div class="cortains--left"></div>
+					<div class="cortains--right"></div>
+				</div>
+				<picture>
+					<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(value_driven.image).src|resize(1800, 1000|towebp)}} 1x, {{ Image(value_driven.image).src|resize(1850, 1000)|towebp}} 2x">
+					<source media="(min-width: 1200px)" srcset="{{ Image(value_driven.image).src | resize(1800, 1000)}} 1x, {{ Image(value_driven.image).src | resize(1850, 1000)}} 2x">
+					<source media="(min-width: 600px)" srcset="{{ Image(value_driven.image).src | resize(800, 800)}}">
+					<img src="{{ Image(value_driven.image).src | resize(800, 500) }}" alt="CALX Image" class="darkEl fadeIn"/>
+				</picture>
+			</div>
+		</div>
+	</div>
+
+
+
+	{% set ambidextrous = post.meta('ambidextrous') %}
+	<div class="container s--largetext fade-trigger s-purpose--standard-module">
+		<div class="row justify-content-end">
+			<div class="col-12 col-md-8 col-xl-7 pd-left">
+				<em class="fadeIn">{{ambidextrous.title}}</em>
+				<p class="fadeIn mt-px30">
+					{{ambidextrous.text}}
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="container showIMG--triger">
+		<div class="row d-flex s--fluid-image relative">
+			<div class="col-12 relative">
+				<div class="cortains">
+					<div class="cortains--left"></div>
+					<div class="cortains--right"></div>
+				</div>
+				<picture>
+					<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(ambidextrous.image).src|resize(1800, 1000|towebp)}} 1x, {{ Image(ambidextrous.image).src|resize(1850, 1000)|towebp}} 2x">
+					<source media="(min-width: 1200px)" srcset="{{ Image(ambidextrous.image).src | resize(1800, 1000)}} 1x, {{ Image(ambidextrous.image).src | resize(1850, 1000)}} 2x">
+					<source media="(min-width: 600px)" srcset="{{ Image(ambidextrous.image).src | resize(800, 800)}}">
+					<img src="{{ Image(ambidextrous.image).src | resize(800, 500) }}" alt="CALX Image" class="darkEl fadeIn"/>
+				</picture>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="s--largetext fade-trigger s-purpose--next-page">
+		<div class="container">
+			<div class="row justify-content-end">
+				<div class="col-12 col-md-8 col-xl-7 pd-left">
+					<div class="s--enquire">
+						<div class="s--small-text">
+							<span class="opacity-7 fadeIn medium">{{__('Next', 'calx')}}</span>
+						</div>
+						<span class="enquire fadeIn mt-px10 block">
+							<a href="{{ fn('get_permalink', 55) }}" class="link--underline cta demi">{{__('Our People', 'calx')}}</a>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}

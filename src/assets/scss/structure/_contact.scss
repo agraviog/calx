@@ -1,0 +1,126 @@
+
+
+.page-template-locations  {
+    .intro .label strong {
+        font-size: 24px;
+    }
+
+    .intro {
+        @include media-breakpoint-down(sm) {
+            .mt-px60 {margin: 0;}
+
+        }
+
+    }
+
+    .intro--subtitle {
+        @include media-breakpoint-down(sm) {br{display: none;}}
+    }
+}
+.page-template-connect  {
+    .s--intro {margin-top: 0;}
+
+    .intro--subtitle {
+        font-size: 24px;
+        line-height: 140%;
+        color: rgba(41,41,41,0.8);
+
+        a {
+            font-family: var(--visbyDemi);
+            color: var(--black);
+        }
+    }
+}
+.ajax-loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include transform(translate(-50%, -50%));
+}
+
+.wpcf7-not-valid-tip {
+    font-size: 13px;
+    color: var(--black);
+    @include transform(translateY(-16px));
+}
+.invalid .wpcf7-response-output {
+    border: 0px !important;
+    padding-left: 0px !important;
+    font-size: 14px !important;
+    margin-top: 10px !important;
+    width: auto !important;
+    margin-left: 0 !important;
+    border-left: 2px solid var(--black) !important;
+    padding-left: 10px !important;
+}
+
+.s-contact--locations {
+    padding-top: 30px;
+    padding-bottom: 0px;
+    &:last-of-type {
+        padding-top: 0px;
+        padding-bottom: 50px;
+    }
+
+    @include media-breakpoint-up(md) {
+        padding-top: 70px;
+        padding-bottom: 70px;
+
+        &:last-of-type {
+            padding-top: 70px;
+            padding-bottom: 150px;
+        }
+    }
+
+    em {
+        font-family: var(--visbyDemi);
+        font-size: 24px;
+        display: block;
+    }
+
+    em.location {
+        font-family: var(--visbyMedium);
+    }
+
+    p.label {margin: 0;opacity: 0.7; margin-top: 26px;}
+
+    address {
+        line-height: 140%;
+    }
+    .clock {
+        width: 100px;
+        margin-bottom: 20px;
+        margin-top: 50px;
+        @include media-breakpoint-up(md) {
+            margin: 0px;
+            position: absolute;
+            left: 0;
+            @include transform(translateX(-100px));
+        }
+    }
+
+    .mt-px40 {margin-top: 40px;}
+
+    .location--pin {
+        @include media-breakpoint-up(md) {
+            padding-top: 150px;
+            padding-bottom: 150px;
+        }
+    }
+}
+
+> .place-card .place-card-large {display: none; visibility: hidden !important;}
+iframe  {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    width: 100%;
+    object-fit: cover;
+    height: 340px;
+
+    @include media-breakpoint-up(md) {
+        height: 566px;
+    }
+}

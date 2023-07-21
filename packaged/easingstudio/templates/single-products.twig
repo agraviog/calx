@@ -1,0 +1,186 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+<div class="container-fluid mt-px50" data-section="common--intro">
+	<div class="row no-gutters align-items-center">
+		<div class="col-6 col-md-4 col-xl-4 textmask">
+			<svg viewBox="0 0 326 376" class="icon-a"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#a" /></svg>
+
+			{% if post.logoproduct %}
+				<img src="{{Image(post.logoproduct).src}}" alt="Image" style="max-width: 100%;"/>
+			{% else %}
+				<h1>{{post.meta('title')}}</h1>
+			{% endif %}
+			<div class="d-none d-xl-block text mt-px10">{{post.meta('short_description')}}</div>
+		</div>
+		<div class="col-6 col-md-8 col-xl-8">
+
+			<picture>
+				<source media="(min-width: 1200px)"
+				srcset="{{ Image(post.cover_image).src|resize(1600, 1000) }}">
+				<source media="(min-width: 768px)"
+				srcset="{{ Image(post.cover_image).src|resize(1000, 800) }}">
+				<img src="{{Image(post.cover_image).src|resize(200, 300)}}" alt="Image"/>
+			</picture>
+		</div>
+	</div>
+</div>
+
+<div data-section="why_this_product">
+	<div class="container">
+		<div class="row d-flex align-items-center justify-content-center">
+			<div class="col-12 col-xl-3">
+				<em>{{post.meta('why_this_product').title}}</em>
+				<div class="mt-px20">
+					<p class="text">{{post.meta('why_this_product').text}}</p>
+				</div>
+			</div>
+			<div class="col-xl-7 offset-xl-1 d-none d-md-block">
+				<div class="align-items-center">
+					{{post.meta('why_this_product').examples}}
+				</div>
+			</div>
+		</div>
+
+		{% if post.video %}
+			<div class="row justify-content-center mt-px40">
+				<div class="col-12 col-xl-10">
+					{% if (site.language == 'fr-FR') %}
+						<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/{{post.video}}?color=B9D9EB&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+					{% else %}
+						<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/{{post.video}}?color=F6BE00&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+					{% endif %}
+				</div>
+			</div>
+		{% endif %}
+
+		<div style="overflow-x:scroll;" class="containerwrapp mt-px20 d-block d-md-none">
+			<div class="col-12 d-flex flex-nowrap align-items-center">
+				{{post.meta('why_this_product').examples}}
+			</div>
+		</div>
+		<div class="scrollContainer d-block d-md-none">
+			<div class="col-auto">
+				<div class="scroll">
+					<i></i>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="oh">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				{% for item in post.meta('features') %}
+				<div class="contentblock mt-px20 row no-gutters">
+					<div class="col-12 col-lg-6 left-wing">
+						<div class="contentblock--info {% if item.gallery|length > 2 %}show-thumbnails{% endif %}">
+							<em>{{item.title}}</em>
+							<div class="slideshow-container relative d-block d-lg-none">
+								<div class="relative">
+									<div class="slideshow--normal mt-px20">
+										{% for item in item.gallery %}
+											<div class="slide relative">
+												<picture>
+													<source media="(min-width: 768px)"
+													srcset="{{ Image(item).src|resize(900, 500) }}">
+													<img src="{{Image(item).src|resize(400, 380)}}" alt="Image"/>
+												</picture>
+											</div>
+										{% endfor %}
+									</div>
+								</div>
+
+								{% if item.gallery|length > 2 %}
+								<div class="slideshow--normal--thumbs d-md-none">
+									{% for item in item.gallery %}
+										<div class="slide">
+											<picture>
+												<source media="(min-width: 768px)"
+												srcset="{{ Image(item).src|resize(500, 450) }}">
+												<img src="{{Image(item).src|resize(400, 380)}}" alt="Image"/>
+											</picture>
+										</div>
+									{% endfor %}
+								</div>
+								{% else %}
+								<div class="slideshow--normal--thumbs d-md-none">
+									<div class="slide"></div>
+								</div>
+								{% endif %}
+							</div>
+							<div class="mt-px30 text">
+								{{item.description}}
+							</div>
+
+							{% if item.gallery|length > 2 %}
+								<div class="slideshow--normal--thumbs row  d-none d-lg-block">
+									{% for item in item.gallery %}
+										<div class="slide">
+											<picture>
+												<img src="{{Image(item).src|resize(400, 400)}}" alt="Image"/>
+											</picture>
+										</div>
+									{% endfor %}
+								</div>
+							{% else %}
+							<div class="slideshow--normal--thumbs d-md-none">
+								<div class="slide"></div>
+							</div>
+							{% endif %}
+						</div>
+					</div>
+					<div class="col-md-6 d-none d-lg-block slider">
+						<div class="slideshow-container relative d-none d-md-block">
+							<div class="slideshow--normal mt-px20 relative">
+								{% for item in item.gallery %}
+									<div class="slide relative">
+										<picture>
+											<img src="{{Image(item).src|resize(1050, 860)}}" alt="Image"/>
+										</picture>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<div data-module="product-comparation">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 text-center">
+				<img src="{{ site.theme.link }}/dist/assets/images/comparation-{{site.language|slice(0,2)}}.jpg" alt="Comparation">
+				<div class="content">
+					<div class="row justify-content-center">
+						<div class="col-8 col-md-10 col-xl-12">
+							<em>{{ __("<strong>Vous voulez</strong> savoir lequel est le mieux pour vous?", "adom") }}</em>
+						</div>
+					</div>
+					<div class="mt-px20">
+						<a href="{{ fn('get_permalink', 408) }}" class="button-cta">{{ __("Contactez Notre Équipe?", "adom") }}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% include 'modules/cta-contacts.twig' %}
+
+{% endblock %}
+{% block scripts %}
+{% endblock %}

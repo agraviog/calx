@@ -1,0 +1,268 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+<div class="container-fluid mt-px50 d-block d-xl-none" data-section="common--intro">
+	<div class="row no-gutters align-items-center">
+		<div class="col-6 col-md-4 col-xl-4 textmask">
+			<svg viewBox="0 0 326 376" class="icon-a"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#a" /></svg>
+			<h1 class="uppercase">{{post.meta('title')}}</h1>
+
+			<p class="d-none d-md-block">{{post.meta('short_description')}}</p>
+		</div>
+		<div class="col-6 col-md-8 col-xl-8">
+			<picture>
+				<source media="(min-width: 1200px)"
+				srcset="{{ Image(post.cover_image).src|resize(1600, 1000) }}">
+				<source media="(min-width: 768px)"
+				srcset="{{ Image(post.cover_image).src|resize(1000, 800) }}">
+				<img src="{{Image(post.cover_image).src|resize(400, 600)}}" alt="Image"/>
+			</picture>
+
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid mt-px50 d-none d-xl-block" data-section="plans-highlighter-desktop">
+	<svg viewBox="0 0 326 376" class="icon-a"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#a" /></svg>
+	<div class="row no-gutters align-items-center text-center">
+		<div class="col-12">
+			<h1>{{post.meta('title')}}</h1>
+		</div>
+	</div>
+	<div class="row no-gutters align-items-center justify-content-center">
+		<div class="col-xl-7">
+			<div class="row no-gutters align-items-center justify-content-center text-center">
+				<div class="col-3 single-planner">
+					<em>Bronze</em>
+					<div>
+						{{ post.meta('plans_intro').bronze }}
+					</div>
+
+					<a href="#plans" class="js-click-to-scroll d-flex align-items-center justify-content-center">{{ __("Comparer les plans", "adom") }} <svg viewBox="0 0 11 7" class="icon-arrow-down"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow-down" /></svg></a>
+				</div>
+				<div class="col-3 single-planner">
+					<em>Argent</em>
+					<div>
+						{{ post.meta('plans_intro').argent }}
+					</div>
+
+					<a href="#plans" class="js-click-to-scroll d-flex align-items-center justify-content-center">{{ __("Comparer les plans", "adom") }} <svg viewBox="0 0 11 7" class="icon-arrow-down"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow-down" /></svg></a>
+
+
+				</div>
+				<div class="col-3 single-planner active">
+					<em>Or</em>
+					<div>
+						{{ post.meta('plans_intro').or }}
+					</div>
+
+					<a href="#plans" class="js-click-to-scroll d-flex align-items-center justify-content-center">{{ __("Comparer les plans", "adom") }} <svg viewBox="0 0 11 7" class="icon-arrow-down"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow-down" /></svg></a>
+				</div>
+				<div class="col-3 single-planner">
+					<em>Platinium</em>
+					<div>
+						{{ post.meta('plans_intro').platinium }}
+					</div>
+
+					<a href="#plans" class="js-click-to-scroll d-flex align-items-center justify-content-center">{{ __("Comparer les plans", "adom") }} <svg viewBox="0 0 11 7" class="icon-arrow-down"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow-down" /></svg></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div data-module="plans" id="plans">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 text-center">
+				<em>{{post.meta('secondary_title')}}</em>
+			</div>
+		</div>
+		<div class="row justify-content-center d-flex align-items-center mt-px20 d-block d-md-none">
+			<div class="col-auto">
+				<span>{{ __("Choisissez votre plan:", "adom") }}</span>
+			</div>
+			<div class="col-auto">
+				<select class="select-css" name="currentPlan">
+					<option value="plan-bronze">Bronze</option>
+					<option value="plan-argent">Argent</option>
+					<option value="plan-or" selected="selected">Or</option>
+					<option value="plan-platinium">Platinium</option>
+				</select>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="mt-px40 container">
+		<div class="row no-gutters plan">
+			<div class="col-12 relative">
+				<div class="highliner"></div>
+				<div class="d-none d-md-block">
+					<dl class="row d-flex align-items-center firstrow">
+						<dt class="col-6 align-self-center"></dt>
+						<dd>Bronze</dd>
+						<dd>Argent</dd>
+						<dd>Or</dd>
+						<dd>Platinium</dd>
+					</dl>
+				</div>
+
+				<dl class="row d-flex align-items-center">
+					<dt class="label">{{ __('Disponibilité', 'adom') }}</dt>
+
+					<dd class="js-hide plan-bronze">{{ __('Du lundi au vendredi<br>De 8h à 17h', 'adom') }}</dd>
+					<dd class="js-hide plan-argent">{{ __('Du lundi au vendredi<br>De 8h à 21h', 'adom') }}</dd>
+					<dd class="plan-or">{{ __('Du lundi au dimanche<br>De 8h à 21h', 'adom') }}</dd>
+					<dd class="js-hide plan-platinium">{{ __('Du lundi au vendredi<br>De 5h à 23h', 'adom') }}</dd>
+				</dl>
+
+				<dl class="row d-flex align-items-center">
+					<dt class="label">{{ __("Temps de réponse d'un agen", 'adom') }}t</dt>
+
+					<dd class="js-hide plan-bronze">{{ __('2 jours selon la plage de disponibilité', 'adom') }}</dd>
+					<dd class="js-hide plan-argent">{{ __('1 jour selon la plage de disponibilité', 'adom') }}</dd>
+					<dd class="plan-or">{{ __('4 houres selon la plage de disponibilité', 'adom') }}</dd>
+					<dd class="js-hide plan-platinium">{{ __('2 houres selon la plage de disponibilité', 'adom') }}</dd>
+				</dl>
+
+				<dl class="row d-flex align-items-center">
+					<dt class="label">{{ __('Visites de maintenance', 'adom') }}</dt>
+
+					<dd class="js-hide plan-bronze"><svg viewBox="0 0 21 21" class="icon-false"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#false" /></svg></dd>
+					<dd class="js-hide plan-argent"><svg viewBox="0 0 21 21" class="icon-false"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#false" /></svg></dd>
+					<dd class="plan-or">{{ __('2 visite par an', 'adom') }}</dd>
+					<dd class="js-hide plan-platinium">{{ __('2 visite par an', 'adom') }}</dd>
+				</dl>
+
+				<dl class="row d-flex align-items-center">
+					<dt class="label">{{ __('Garantie sur les pièces de nos manufacturies domotique', 'adom') }}*</dt>
+
+					<dd class="js-hide plan-bronze"><strong>{{ __('12 mois', 'adom') }}</strong></dd>
+					<dd class="js-hide plan-argent"><strong>{{ __('12 mois', 'adom') }}</strong></dd>
+					<dd class="plan-or"><strong>{{ __('24 mois', 'adom') }}</strong></dd>
+					<dd class="js-hide plan-platinium"><strong>{{ __('36 mois', 'adom') }}**</strong></dd>
+				</dl>
+
+				<dl class="row d-flex align-items-center">
+					<dt class="label">{{ __('Priorité', 'adom') }}</dt>
+
+					<dd class="js-hide plan-bronze"><strong>4</strong></dd>
+					<dd class="js-hide plan-argent"><strong>3</strong></dd>
+					<dd class="plan-or"><strong>2</strong></dd>
+					<dd class="js-hide plan-platinium"><strong>1</strong></dd>
+				</dl>
+
+				<dl class="row d-flex align-items-center">
+					<dt class="label">{{ __("Nombre minimum d'heures par appel de service", 'adom') }}</dt>
+
+					<dd class="js-hide plan-bronze">3 {{ __('heures', 'adom') }}</dd>
+					<dd class="js-hide plan-argent">3 {{ __('heures', 'adom') }}</dd>
+					<dd class="plan-or">2 {{ __('heures', 'adom') }}</dd>
+					<dd class="js-hide plan-platinium">1 {{ __('heure', 'adom') }}</dd>
+				</dl>
+
+				<dl class="row d-flex align-items-center">
+					<dt class="label">{{ __('Support illimité par courriel', 'adom') }}</dt>
+
+					<dd class="js-hide plan-bronze"><svg viewBox="0 0 18 14" class="icon-true"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#true" /></svg></dd>
+					<dd class="js-hide plan-argent"><svg viewBox="0 0 18 14" class="icon-true"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#true" /></svg></dd>
+					<dd class="plan-or"><svg viewBox="0 0 18 14" class="icon-true"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#true" /></svg></dd>
+					<dd class="js-hide plan-platinium"><svg viewBox="0 0 18 14" class="icon-true"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#true" /></svg></dd>
+				</dl>
+
+				<dl class="row d-flex align-items-center">
+					<dt class="label">{{ __('Support illimité par chat sur web', 'adom') }}</dt>
+
+					<dd class="js-hide plan-bronze"><svg viewBox="0 0 18 14" class="icon-true"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#true" /></svg></dd>
+					<dd class="js-hide plan-argent"><svg viewBox="0 0 18 14" class="icon-true"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#true" /></svg></dd>
+					<dd class="plan-or"><svg viewBox="0 0 18 14" class="icon-true"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#true" /></svg></dd>
+					<dd class="js-hide plan-platinium"><svg viewBox="0 0 18 14" class="icon-true"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#true" /></svg></dd>
+				</dl>
+
+				<dl class="row d-flex align-items-center">
+					<dt class="label">{{ __('Support illimité par message texte', 'adom') }}</dt>
+
+					<dd class="js-hide plan-bronze"><svg viewBox="0 0 18 14" class="icon-true"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#true" /></svg></dd>
+					<dd class="js-hide plan-argent"><svg viewBox="0 0 18 14" class="icon-true"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#true" /></svg></dd>
+					<dd class="plan-or"><svg viewBox="0 0 18 14" class="icon-true"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#true" /></svg></dd>
+					<dd class="js-hide plan-platinium"><svg viewBox="0 0 18 14" class="icon-true"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#true" /></svg></dd>
+				</dl>
+
+				<dl class="row d-flex align-items-center">
+					<dt class="label">{{ __('Support illimité par téléphone', 'adom') }}</dt>
+
+					<dd class="js-hide plan-bronze"><svg viewBox="0 0 21 21" class="icon-false"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#false" /></svg></dd>
+					<dd class="js-hide plan-argent"><svg viewBox="0 0 18 14" class="icon-true"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#true" /></svg></dd>
+					<dd class="plan-or"><svg viewBox="0 0 18 14" class="icon-true"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#true" /></svg></dd>
+					<dd class="js-hide plan-platinium"><svg viewBox="0 0 18 14" class="icon-true"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#true" /></svg></dd>
+				</dl>
+
+				<dl class="row d-flex align-items-center">
+					<dt class="label">{{ __("Control4 - licence d'accès à distance", 'adom') }}</dt>
+
+					<dd class="js-hide plan-bronze"><svg viewBox="0 0 21 21" class="icon-false"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#false" /></svg></dd>
+					<dd class="js-hide plan-argent"><svg viewBox="0 0 18 14" class="icon-true"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#true" /></svg></dd>
+					<dd class="plan-or"><svg viewBox="0 0 18 14" class="icon-true"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#true" /></svg></dd>
+					<dd class="js-hide plan-platinium"><svg viewBox="0 0 18 14" class="icon-true"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#true" /></svg></dd>
+				</dl>
+
+				<dl class="row d-flex align-items-center">
+					<dt class="label">{{ __('Support sur place', 'adom') }}</dt>
+
+					<dd class="js-hide plan-bronze">{{ __("Taux horarire régulier", 'adom') }}</dd>
+					<dd class="js-hide plan-argent">{{ __("Taux horarire régulier", 'adom') }}</dd>
+					<dd class="plan-or">{{ __("Taux horarire régulier", 'adom') }}</dd>
+					<dd class="js-hide plan-platinium">{{ __("Taux horarire régulier", 'adom') }}</dd>
+				</dl>
+
+				<dl class="row d-flex align-items-center">
+					<dt class="label">{{ __('Frais déplacement pour visite de maintenance', 'adom') }}</dt>
+
+					<dd class="js-hide plan-bronze">{{ __('Plus de 30 minutes: <br>1,50 $ / Minute', 'adom') }}</dd>
+					<dd class="js-hide plan-argent">{{ __('Plus de 30 minutes: <br>1,50 $ / Minute', 'adom') }}</dd>
+					<dd class="plan-or">{{ __('Inclus', 'adom') }}</dd>
+					<dd class="js-hide plan-platinium">{{ __('Inclus', 'adom') }}</dd>
+				</dl>
+				<dl class="row d-flex align-items-center">
+					<dt class="label">{{ __('Frais déplacement pour appel de service', 'adom') }}</dt>
+
+					<dd class="js-hide plan-bronze">{{ __('Plus de 30 minutes: <br>1,50 $ / Minute', 'adom') }}</dd>
+					<dd class="js-hide plan-argent">{{ __('Plus de 30 minutes: <br>1,50 $ / Minute', 'adom') }}</dd>
+					<dd class="plan-or">{{ __('Plus de 30 minutes: <br>1,50 $ / Minute', 'adom') }}</dd>
+					<dd class="js-hide plan-platinium">{{ __('Plus de 30 minutes: <br>1,50 $ / Minute', 'adom') }}</dd>
+				</dl>
+
+				<div class="d-none d-md-block">
+					<dl class="row d-flex align-items-center lastrow">
+						<dt class="label"></dt>
+
+						<dd><a href="{{mailto}}" class="button-choose">{{ __("Je suis intéressé", "adom") }}</a></dd>
+						<dd><a href="{{mailto}}" class="button-choose">{{ __("Je suis intéressé", "adom") }}</a></dd>
+						<dd class="active"><a href="{{mailto}}" class="button-choose">{{ __("Je suis intéressé", "adom") }}</a></dd>
+						<dd><a href="{{mailto}}" class="button-choose">{{ __("Je suis intéressé", "adom") }}</a></dd>
+					</dl>
+				</div>
+
+
+				<div class="mt-px20 row d-flex align-items-center justify-content-center d-block d-md-none">
+					<a href="{{mailto}}" class="button-choose">{{ __("Je suis intéressé", "adom") }}</a>
+				</div>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-xl-4 mt-px30">
+				<small class="block">{{post.meta('extra_informations')}}</small>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% include 'modules/contacts.twig' %}
+{% endblock %}

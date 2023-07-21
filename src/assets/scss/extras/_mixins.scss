@@ -1,0 +1,179 @@
+/*************************
+# -  Mixins
+*************************/
+@function rem-calc($size) { $remSize: $size / 16; @return #{$remSize}rem; }
+
+//GENERATE BACKGROUND-SIZE
+@mixin background-size($size) {
+    -webkit-background-size: $size !important;
+    -moz-background-size: $size !important;
+    -ms-background-size: $size !important;
+    background-size: $size !important;
+}
+//GENERATE TEXT-SHADOW
+@mixin text-shadow($horizontal, $vertical, $blur, $color) {
+    -moz-text-shadow: $horizontal, $vertical, $blur, $color;
+    text-shadow: $horizontal, $vertical, $blur, $color;
+    -ms-text-shadow: $horizontal, $vertical, $blur, $color;
+    -o-text-shadow: $horizontal, $vertical, $blur, $color;
+    -webkit-text-shadow: $horizontal, $vertical, $blur, $color;
+}
+//GENERATE TRANSFORM-ORIGIN
+@mixin transform-origin($v_h_align) {
+    transform-origin: $v_h_align;
+    -moz-transform-origin: $v_h_align;
+    -ms-transform-origin: $v_h_align;
+    -webkit-transform-origin: $v_h_align;
+}
+//GENERATE radial-gradient
+@mixin radial-gradient($size, $type, $color1, $color2) {
+    background-image: radial-gradient($size, $type, $color1, $color2);
+    background-image: -moz-radial-gradient($size, $type, $color1, $color2);
+    background-image: -webkit-radial-gradient($size, $type, $color1, $color2);
+}
+//GENERATE TRANSFORM-ORIGIN
+@mixin animation-timing-function($value) {
+    -webkit-animation-timing-function: $value;
+    -moz-animation-timing-function: $value;
+    animation-timing-function: $value;
+}
+//GENERATE TRANSFORM-STYLE
+@mixin transform-style($v_h_align) {
+    -webkit-transform-style: $v_h_align;
+    -moz-transform-style: $v_h_align;
+    -ms-transform-style: $v_h_align;
+    transform-style: $v_h_align;
+}
+//GENERATE Box-shadow
+@mixin boxShadow($string...){
+  -webkit-box-shadow: $string;
+  -moz-box-shadow:    $string;
+  box-shadow:         $string;
+}
+
+//GENERATE Filter
+@mixin filter($effect) {
+    -webkit-filter: $effect;
+    -moz-filter: $effect;
+    -o-filter: $effect;
+    -ms-filter: $effect;
+    filter: $effect;
+}
+//GENERATE OPACITY
+@mixin opacity ($time) {
+    transition: opacity $time ease-in-out;
+    -moz-transition: opacity $time ease-in-out;
+    -webkit-transition: opacity $time ease-in-out;
+}
+//GENERATE TRANSFORM-STYLE
+@mixin transform-style($transform) {
+    -webkit-transform-style: $transform;
+    -moz-transform-style: $transform;
+    -ms-transform-style: $transform;
+    -o-transform-style: $transform;
+    transform-style: $transform;
+}
+//GENERATE backface-visibility
+@mixin backface-visibility($state) {
+    backface-visibility: $state;
+    -ms-backface-visibility: $state;
+    -webkit-backface-visibility: $state;
+    -moz-backface-visibility: $state;
+}
+//GENERATE TRANSITION-DELAY
+@mixin transition-delay($delay) {
+    -webkit-transition-delay: $delay;
+    -moz-transition-delay: $delay;
+    -ms-transition-delay: $delay;
+    -o-transition-delay: $delay;
+    transition-delay: $delay;
+}
+//GENERATE TRANSFORM
+@mixin transform($transform) {
+    -webkit-transform: $transform;
+    -moz-transform: $transform;
+    -ms-transform: $transform;
+    -o-transform: $transform;
+    transform: $transform;
+}
+//GENERATE TRANSITION
+
+@mixin transition($x...){
+    -webkit-transition: $x;
+    -moz-transition: $x;
+    -ms-transition: $x;
+    -o-transition: $x;
+    transition: $x;
+}
+@mixin transitioncustom ($type, $time, $ease) {
+    -webkit-transition: $type $time $ease;
+    -moz-transition: $type $time $ease;
+    -ms-transition: $type $time $ease;
+    -o-transition: $type $time $ease;
+    transition: $type $time $ease;
+}
+//GENERATE TRANSLATE
+@mixin translate ($x, $y) {
+    -webkit-transform: translate($x, $y);
+    -moz-transform: translate($x, $y);
+    -ms-transform: translate($x, $y);
+    -o-transform: translate($x, $y);
+    transform: translate($x, $y);
+}
+//GENERATE ROTATION
+@mixin rotation ($degree) {
+    -moz-transform: rotate($degree);
+    -webkit-transform: rotate($degree);
+    -o-transform: rotate($degree);
+    -ms-transform: rotate($degree);
+    transform: rotate($degree);
+}
+//GENERATE SKEW
+@mixin skew ($xdegree, $ydegree) {
+    -moz-transform: skewX($xdegree) skewY($ydegree);
+    -webkit-transform: skewX($xdegree) skewY($ydegree);
+    -o-transform: skewX($xdegree) skewY($ydegree);
+    -ms-transform: skewX($xdegree) skewY($ydegree);
+    transform: skewX($xdegree) skewY($ydegree);
+}
+
+@mixin animation($animate...) {
+    $max: length($animate);
+    $animations: '';
+
+    @for $i from 1 through $max {
+        $animations: #{$animations + nth($animate, $i)};
+
+        @if $i < $max {
+            $animations: #{$animations + ", "};
+        }
+    }
+    -webkit-animation: $animations;
+    -moz-animation:    $animations;
+    -o-animation:      $animations;
+    animation:         $animations;
+}
+
+@mixin keyframes($animationName) {
+     @-webkit-keyframes #{$animationName}{
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+         @content;
+    }
+    @-o-keyframes #{$animationName} {
+         @content;
+    }
+    @keyframes #{$animationName} {
+         @content;
+    }
+}
+
+$browser-context: 16; // Default
+$margintop: 150;
+@while $margintop > 9 {
+    .mt-px#{$margintop} {
+        margin-top: #{$margintop/$browser-context}em;
+    }
+    $margintop: $margintop - 10;
+}

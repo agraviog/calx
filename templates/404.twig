@@ -1,0 +1,69 @@
+{% set colors = 'error' %}
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+	<div class="container intro js-typed-text">
+		<div class="row">
+			<div class="col-md-5 col-xl-4 col-xxl-3 order-2 order-md-1 d-none d-md-inline-block">
+				<p class="intro--text"></p>
+			</div>
+
+			<div class="col-md-7 col-xl-6 col-xxl-6 offset-xl-1 offset-xxl-2 pd-left order-1 order-md-2">
+				<div class="row row--inner">
+					<div class="col-xl-12">
+						<h1 class="intro--title">{{ __('404 Error', 'calx') }}</h1>
+					</div>
+				</div>
+
+				<em class="intro--subtitle letters">
+					{{__('The page you’re looking for is either unavailable or does not exist', 'calx')}}
+				</em>
+
+				<div class="mt-px20">
+					<a href="{{ fn('get_permalink', 2) }}" class="moveitUp cta btn-read-more mt">
+						<span>{{ __('Homepage', 'calx') }}</span>
+						<svg viewBox="0 0 8.121 13.414" class="arrow"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow" /></svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="s-404--insights s-product--features">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<p class="s-404--insights-tile">{{__('You might be interested,<br>Check out our Insights!', 'calx')}}</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div class="swiper-container x-slider d-flex">
+						<div class="swiper-wrapper d-flex justify-content-start align-items-start">
+							{% for i in range(1,5) %}
+							<div class="swiper-slide relative">
+								<div {% if i < '4' %}class="swiper--inner"{% endif %}>
+									<svg viewBox="{{icon.viewbox}}" class="icon"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#{{icon.id}}" /></svg>
+									<picture>
+									    <source media="(min-width: 1000px)" type="image/webp" srcset="{{ Image(685).src|resize(900, 900)|towebp}} 1x, {{ Image(685).src|resize(1100, 1100)|towebp}} 2x">
+									    <source media="(min-width: 1000px)" srcset="{{ Image(685).src | resize(900, 900)}} 1x, {{ Image(685).src | resize(1100, 1100)}} 2x">
+									    <img src="{{ Image(685).src | resize(600, 600) }}" alt="CALX Image" class="darkEl" />
+									</picture>
+
+									<div class="swiper-slide--content">
+										<p>12 January 2021</p>
+										<em>Temporary Title</em>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut…</p>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+						<div class="swiper-scrollbar"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

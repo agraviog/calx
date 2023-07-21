@@ -1,0 +1,500 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+	<div class="container intro">
+		<div class="row">
+			<div class="col-md-5 col-xl-4 col-xxl-3 order-2 order-md-1">
+				<p class="intro--text">{{post.meta('intro').label}}</p>
+			</div>
+
+			<div class="col-md-7 col-xl-6 col-xxl-7 offset-xl-1 offset-xxl-2 pd-left order-1 order-md-2">
+				<h1 class="intro--title">{{post.meta('intro').title}}</h1>
+			</div>
+		</div>
+	</div>
+
+	<div class="container moveitUp reveal-header s--intro ltr">
+		<div class="row">
+			<div class="col-md-5 col-xl-5 d-none d-md-inline-flex">
+				<p class="size14 demi opacity-7">{{__('CALX Consulting', 'calx')}}</p>
+			</div>
+			<div class="col-md-3 text-md-center text-lg-start text-xl-start text-xxl-start col-xl-3 pd-left d-none d-md-inline-flex">
+				<p class="size14 demi rtl"><a href="{{ fn('get_permalink', 37) }}" class="cta link--underline">{{__('Services', 'calx')}} (2)</a></p>
+			</div>
+			<div class="col-md-3 text-right text-lg-start col-xl-3 d-none d-md-inline-flex">
+				<p class="size14 demi rtl"><a href="{{ fn('get_permalink', 41) }}" class="cta link--underline">{{__('Products', 'calx')}} (3)</a></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 relative oh">
+				<div class="panel"></div>
+				<picture>
+					<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(post.meta('intro').image).src|resize(1800, 1000)|towebp}} 1x, {{ Image(post.meta('intro').image).src|resize(1850, 1000)|towebp}} 2x">
+					<source media="(min-width: 1200px)" srcset="{{ Image(post.meta('intro').image).src | resize(1800, 1000)}} 1x, {{ Image(post.meta('intro').image).src | resize(1850, 1000)}} 2x">
+					<source media="(min-width: 600px)" srcset="{{ Image(post.meta('intro').image).src | resize(1200, 800)}}">
+					<img src="{{ Image(post.meta('intro').image).src | resize(600, 400) }}" alt="CALX Intro Image" class="intro--picture darkEl" />
+				</picture>
+			</div>
+		</div>
+	</div>
+
+
+	{% set purpose = post.meta('our_purpose') %}
+	<div class="container">
+		<div class="row s-homepage s--largetext s-homepage--purpose js-typed-text">
+			<div class="col-md-4 col-xl-5">
+				<em>{{purpose.title}}</em>
+				<div class="d-none d-md-block">
+					<a href="{{ fn('get_permalink', 53) }}" class="moveitUp cta btn-read-more mt">
+						<span>{{ __('Read more', 'calx') }}</span>
+						<svg viewBox="0 0 8.121 13.414" class="arrow"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow" /></svg>
+					</a>
+				</div>
+			</div>
+
+			<div class="col-12 col-md-7 offset-md-1 col-xl-7 offset-xl-0 pd-left">
+				<p class="letters">{{purpose.text}}</p>
+
+				<div class="d-block d-md-none">
+					<a href="{{ fn('get_permalink', 53) }}" class="moveitUp cta btn-read-more mt">
+						<span>{{ __('Read more', 'calx') }}</span>
+						<svg viewBox="0 0 8.121 13.414" class="arrow"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow" /></svg>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		{% set people = post.meta('our_people') %}
+		<div class="row s-homepage s--largetext s-homepage--people js-typed-text">
+			<div class="col-md-4 col-xl-5">
+				<em>{{people.title}}</em>
+				<div class="d-none d-md-block">
+					<a href="{{ fn('get_permalink', 55) }}" class="moveitUp cta btn-read-more mt">
+						<span>{{ __('Read more', 'calx') }}</span>
+						<svg viewBox="0 0 8.121 13.414" class="arrow"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow" /></svg>
+					</a>
+				</div>
+			</div>
+
+			<div class="col-md-12 offset-md-1 col-xl-7 offset-xl-0 pd-left d-none d-md-inline-flex">
+				<p class="letters">{{people.text}}</p>
+
+				<div class="d-block d-md-none">
+					<a href="{{ fn('get_permalink', 55) }}" class="moveitUp cta btn-read-more mt">
+						<span>{{ __('Read more', 'calx') }}</span>
+						<svg viewBox="0 0 8.121 13.414" class="arrow"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow" /></svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container js-revealIMG">
+		<div class="row d-flex s-homepage s--fluid-image">
+			<div class="col-12">
+				<picture>
+					<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(people.image).src|resize(1800, 1000)|towebp}} 1x, {{ Image(people.image).src|resize(1850, 1000)|towebp}} 2x">
+					<source media="(min-width: 1200px)" srcset="{{ Image(people.image).src | resize(1800, 1000)}} 1x, {{ Image(people.image).src | resize(1850, 1000)}} 2x">
+					<source media="(min-width: 600px)" srcset="{{ Image(people.image).src | resize(1200, 800)}}">
+					<img src="{{ Image(people.image).src | resize(700, 600) }}" alt="CALX About Us Image" class="middleimage darkEl"/>
+				</picture>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container mt-px30 d-none d-md-block s--labels">
+		<div class="row">
+			<div class="col-md-4 col-xl-3 col-1">
+				<p class="size14 demi">{{__('CALX Global Partnership', 'calx')}}</p>
+			</div>
+			<div class="col-md-4 offset-xl-2 col-xl-4 col-xxl-4 pd-left col-2">
+				<p class="size14 demi">{{__('Deep commitment to diversity', 'calx')}}</p>
+			</div>
+			<div class="col-md-4 col-xl-3 text-xxl-right col-3">
+				<p class="size14 demi">{{__('Making positive social impact', 'calx')}}</p>
+			</div>
+		</div>
+	</div>
+
+
+	{% set whatwedo = post.meta('whatwedo') %}
+	<div class="container-fluid oh s-homepage s-homepage--quote">
+		<div class="row d-flex flex-nowrap">
+			<div class="col-auto text-center relative">
+				<blockquote class="js-parallax" data-parallax='{"x": -200, "smoothness": 20}'>
+					{{whatwedo.quotes.first_line}}
+				</blockquote>
+				<blockquote class="js-parallax-reverse" data-parallax='{"x": 400, "smoothness": 10}'>
+					{{whatwedo.quotes.second_line}}
+				</blockquote>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container s-homepage s--largetext s-homepage--whatwedo js-typed-text">
+		<div class="row">
+			<div class="col-md-4 col-xl-5">
+				<em>{{whatwedo.title}}</em>
+
+				<ul class="d-none d-md-block">
+					<li><a href="{{ fn('get_permalink', 37) }}" class="cta link--underline">{{__('Services', 'calx')}} (2)</a></li>
+					<li><a href="{{ fn('get_permalink', 41) }}" class="cta link--underline">{{__('Products', 'calx')}} (3)</a></li>
+				</ul>
+			</div>
+			<div class="col-12 col-md-8 col-xl-7 pd-left">
+				<p class="letters">
+					{{whatwedo.text}}
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="d-none d-md-block ltr">
+		<div class="container-fluid max-1600 s-homepage s-homepage--intro">
+			<div class="row">
+				<div class="col-md-6 col-xl-6 rtl pd-left">
+					<p class="size14 demi"><a href="{{ fn('get_permalink', 37) }}" class="cta link--underline">{{__('Strategy Consulting','calx')}}</a></p>
+				</div>
+				<div class="col-md-3 col-xl-3 rtl pd-left">
+					<p class="size14 demi"><a href="{{ fn('get_permalink', 362) }}" class="cta link--underline">{{__('Project Management','calx')}}</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container-fluid max-1600 s-homepage s-homepage--gallery s-homepage--reveal-cortains d-none d-md-block ltr">
+		<div class="row">
+			<div class="col-md-6 col-xl-6">
+				<div class="large relative onHover">
+					<div class="cortain"></div>
+					<picture>
+						<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(whatwedo.strategy_consulting_image).src|resize(1200, 800)|towebp}} 1x, {{ Image(whatwedo.strategy_consulting_image).src|resize(1200, 1200)|towebp}} 2x">
+						<source media="(min-width: 1200px)" srcset="{{ Image(whatwedo.strategy_consulting_image).src | resize(1200, 800)}} 1x, {{ Image(whatwedo.strategy_consulting_image).src | resize(1000, 1000)}} 2x">
+						<source media="(min-width: 600px)" srcset="{{ Image(whatwedo.strategy_consulting_imagee).src | resize(1200, 800)}}">
+						<img src="{{ Image(whatwedo.strategy_consulting_image).src | resize(600, 600) }}" alt="{{__('Project Management','calx')}} Image"/>
+					</picture>
+
+					<div class="overlay darkEl">
+						<a href="{{ fn('get_permalink', 37) }}" class="cta">{{__('Strategy Consulting','calx')}}</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-xl-3 thumb">
+				<div class="thumb relative onHover">
+					<div class="cortain"></div>
+					<picture>
+						<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(whatwedo.project_management_image).src|resize(400, 400)|towebp}} 1x, {{ Image(whatwedo.project_management_image).src|resize(600, 600)|towebp}} 2x">
+						<source media="(min-width: 1200px)" srcset="{{ Image(whatwedo.project_management_image).src | resize(400, 400)}} 1x, {{ Image(whatwedo.project_management_image).src | resize(600, 600)}} 2x">
+						<source media="(min-width: 600px)" srcset="{{ Image(whatwedo.project_management_image).src | resize(500, 500)}}">
+						<img src="{{ Image(whatwedo.project_management_image).src | resize(400, 400) }}" alt="Image">
+					</picture>
+					<div class="overlay darkEl">
+						<a href="{{ fn('get_permalink', 362) }}" class="cta">{{__('Project Management','calx')}}</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-xl-3 align-self-end">
+				<div class="thumb relative onHover">
+					<div class="cortain"></div>
+					<picture>
+						<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(whatwedo.genius_image).src|resize(400, 400)|towebp}} 1x, {{ Image(whatwedo.genius_image).src|resize(600, 600)|towebp}} 2x">
+						<source media="(min-width: 1200px)" srcset="{{ Image(whatwedo.genius_image).src | resize(400, 400)}} 1x, {{ Image(whatwedo.genius_image).src | resize(600, 600)}} 2x">
+						<source media="(min-width: 600px)" srcset="{{ Image(whatwedo.genius_image).src | resize(500, 500)}}">
+						<img src="{{ Image(whatwedo.genius_image).src | resize(400, 400) }}" alt="Image"/>
+					</picture>
+
+					<div class="overlay darkEl">
+						<a href="{{ fn('get_permalink', 45) }}" class="cta">{{__('Genius','calx')}}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 offset-md-3 col-xl-3 offset-xl-3 relative">
+				<div class="thumb onHover">
+					<div class="cortain"></div>
+					<picture>
+						<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(whatwedo.project_image).src|resize(400, 400)|towebp}} 1x, {{ Image(whatwedo.project_image).src|resize(600, 600)|towebp}} 2x">
+						<source media="(min-width: 1200px)" srcset="{{ Image(whatwedo.project_image).src | resize(400, 400)}} 1x, {{ Image(whatwedo.project_image).src | resize(600, 600)}} 2x">
+						<source media="(min-width: 600px)" srcset="{{ Image(whatwedo.project_image).src | resize(500, 500)}}">
+						<img src="{{ Image(whatwedo.project_image).src | resize(400, 400) }}" alt="Image"/>
+					</picture>
+					<div class="overlay darkEl">
+						<a href="{{ fn('get_permalink', 41) }}" class="cta">{{__('Project+','calx')}}</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-xl-3 col-xxl-3 relative">
+				<div class="relative thumb onHover">
+					<div class="cortain"></div>
+					<picture>
+						<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(whatwedo.winx_image).src|resize(400, 400)|towebp}} 1x, {{ Image(whatwedo.winx_image).src|resize(600, 600)|towebp}} 2x">
+						<source media="(min-width: 1200px)" srcset="{{ Image(whatwedo.winx_image).src | resize(400, 400)}} 1x, {{ Image(whatwedo.winx_image).src | resize(600, 600)}} 2x">
+						<source media="(min-width: 600px)" srcset="{{ Image(whatwedo.winx_image).src | resize(500, 500)}}">
+						<img src="{{ Image(whatwedo.winx_image).src | resize(400, 400) }}" alt="Image"/>
+					</picture>
+					<div class="overlay darkEl">
+						<a href="{{ fn('get_permalink', 43) }}" class="cta">{{__('WinX','calx')}}</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 offset-md-5 col-xl-3 offset-xl-3">
+				<div class="mt-px10 relative">
+					<div class="cortain"></div>
+					<p class="size14 demi rtl pd-left"><a href="{{ fn('get_permalink', 41) }}" class="cta link--underline inline">{{__('Products', 'calx')}}</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid max-1600 s-homepage s-homepage--gallery s-homepage--reveal-cortains s-homepage--gallery--scndrow d-none d-md-block">
+		<div class="row relative ltr">
+			<sub class="parallax-number js-parallax-vertical" data-parallax='{"y": -300, "smoothness": 15}'>21+</sub>
+			<div class="col-md-3 col-xl-3">
+				<div class="relative onHover thumb">
+					<div class="cortain"></div>
+					<picture>
+						<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(whatwedo.purpose_image).src|resize(400, 400)|towebp}} 1x, {{ Image(whatwedo.purpose_image).src|resize(600, 600)|towebp}} 2x">
+						<source media="(min-width: 1200px)" srcset="{{ Image(whatwedo.purpose_image).src | resize(400, 400)}} 1x, {{ Image(whatwedo.purpose_image).src | resize(600, 600)}} 2x">
+						<source media="(min-width: 600px)" srcset="{{ Image(whatwedo.purpose_image).src | resize(500, 500)}}">
+						<img src="{{ Image(whatwedo.purpose_image).src | resize(400, 400) }}" alt="Image"/>
+					</picture>
+					<div class="overlay darkEl">
+						<a href="{{ fn('get_permalink', 53) }}" class="cta">{{__('Our Purpose','calx')}}</a>
+					</div>
+				</div>
+				<div class="relative">
+					<div class="cortain"></div>
+					<p class="size14 pd-left mt-px10 rtl demi"><a href="{{ fn('get_permalink', 53) }}" class="cta link--underline inline">{{__('Purpose', 'calx')}}</a></p>
+				</div>
+			</div>
+			<div class="col-md-3 col-xl-3 align-self-end thumb relative onHover">
+				<div class="relative">
+					<div class="cortain"></div>
+					<picture>
+						<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(whatwedo.industries_image).src|resize(400, 400)|towebp}} 1x, {{ Image(whatwedo.industries_image).src|resize(600, 600)|towebp}} 2x">
+						<source media="(min-width: 1200px)" srcset="{{ Image(whatwedo.industries_image).src | resize(400, 400)}} 1x, {{ Image(whatwedo.industries_image).src | resize(600, 600)}} 2x">
+						<source media="(min-width: 600px)" srcset="{{ Image(whatwedo.industries_image).src | resize(500, 500)}}">
+						<img src="{{ Image(whatwedo.industries_image).src | resize(400, 400) }}" alt="Image"/>
+					</picture>
+
+					<div class="overlay darkEl">
+						<a href="{{ fn('get_permalink', 604) }}" class="cta">{{__('Industries','calx')}}</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-xl-6 large relative onHover">
+				<div class="cortain"></div>
+				<picture>
+					<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(whatwedo.people_image).src|resize(1200, 800)|towebp}} 1x, {{ Image(whatwedo.people_image).src|resize(1000, 1000)|towebp}} 2x">
+					<source media="(min-width: 1200px)" srcset="{{ Image(whatwedo.people_image).src | resize(1200, 800)}} 1x, {{ Image(whatwedo.people_image).src | resize(1000, 1000)}} 2x">
+					<source media="(min-width: 600px)" srcset="{{ Image(whatwedo.people_image).src | resize(1200, 800)}}">
+					<img src="{{ Image(whatwedo.people_image).src | resize(400, 400) }}" alt="Image"/>
+				</picture>
+
+				<div class="overlay darkEl">
+					<a href="{{ fn('get_permalink', 55) }}" class="cta">{{__('Our People','calx')}}</a>
+				</div>
+			</div>
+
+			<div class="col-md-3 offset-md-3 col-xl-3 offset-xl-3">
+				<div class="mt-px10 relative">
+					<div class="cortain"></div>
+					<p class="size14 pd-left rtl demi"><a href="{{ fn('get_permalink', 604) }}" class="cta link--underline inline">{{__('Industries', 'calx')}}</a></p>
+				</div>
+			</div>
+			<div class="col-md-6 col-xl-6">
+				<div class="mt-px10 relative">
+					<div class="cortain"></div>
+					<p class="size14 pd-left rtl demi"><a href="{{ fn('get_permalink', 55) }}" class="cta link--underline inline">{{__('People','calx')}}</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid oh s-homepage s-homepage--quote d-none d-md-block">
+		<div class="row d-flex flex-nowrap">
+			<div class="col-auto text-center relative">
+				<div data-parallax='{"x": -200, "smoothness": 20}'>
+					<blockquote>
+						{{__('Strategy Consulting', 'calx')}} <sub>(5)</sub> {{__('Product Management', 'calx')}}
+					</blockquote>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container d-block d-md-none">
+		<div class="row s-homepage s--largetext s-homepage--services">
+			<div class="col-12">
+				<em>{{__('Services', 'calx')}}</em>
+				<ul>
+					<li><a href="{{ fn('get_permalink', 37) }}" class="link--underline cta">{{__('Strategy Consulting', 'calx')}}</a></li>
+					<li><a href="{{ fn('get_permalink', 362) }}" class="link--underline cta">{{__('Project Management', 'calx')}}</a></li>
+					<li><a href="{{ fn('get_permalink', 41) }}" class="link--underline cta">{{__('Products','calx')}}</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	{% set saudi = post.meta('saudi_brand') %}
+	<div class="container">
+		<div class="row s-homepage s--largetext s-homepage--video js-typed-text">
+			<div class="col-md-4 col-xl-5">
+				<em>{{saudi.title}}</em>
+				<div class="d-none d-md-block">
+					<a href="{{ fn('get_permalink', 570) }}" class="moveitUp cta btn-read-more mt">
+						<span>{{ __('Read more', 'calx') }}</span>
+						<svg viewBox="0 0 8.121 13.414" class="arrow"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow" /></svg>
+					</a>
+				</div>
+			</div>
+			<div class="col-12 col-md-7 offset-md-1 col-xl-7 offset-xl-0 pd-left d-none d-md-inline-flex">
+				<p class="letters">{{saudi.text}}</p>
+
+				<div class="d-block d-md-none">
+					<a href="{{ fn('get_permalink', 570) }}" class="moveitUp cta btn-read-more mt">
+						<span>{{ __('Read more', 'calx') }}</span>
+						<svg viewBox="0 0 8.121 13.414" class="arrow"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow" /></svg>
+					</a>
+				</div>
+			</div>
+
+			<div class="col-xl-12">
+				<div class="videoContainer darkEl relative">
+					<div class="cortains">
+						<div class="cortains--left"></div>
+						<div class="cortains--right"></div>
+					</div>
+					<svg viewBox="0 0 129.446 31.085" class="icon-logo"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#logo" /></svg>
+					<em>{{__('Proudly<br>Saudi', 'calx')}}</em>
+
+					<video class="saudi--video" data-mobile-src="{{ site.theme.link }}/static/video_mobile.mp4" data-desktop-src="{{ site.theme.link }}/static/video_desktop.mp4" type="video/mp4" loop autoplay muted playsinline poster="{{ site.theme.link }}/static/videocover.jpg">
+					</video>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container s-homepage mt-px30 d-none d-md-block s--labels">
+		<div class="row">
+			<div class="col-md-4 col-xl-5 col-1">
+				<p class="size14 demi">{{ __('SAUDI excellence', 'calx') }}</p>
+			</div>
+			<div class="col-md-4 col-xl-3 pd-left col-2">
+				<p class="size14 demi">{{ __('Clear path to success', 'calx') }}</p>
+			</div>
+			<div class="col-md-4 col-xl-3 col-3">
+				<p class="size14 demi">{{ __('Family oriented culture', 'calx') }}</p>
+			</div>
+		</div>
+	</div>
+
+
+    {% set insights = post.meta('insights') %}
+	<div class="d-none">
+		<div class="container">
+			<div class="row s-homepage s--largetext s-homepage--video js-typed-text">
+				<div class="col-md-4 col-xl-5">
+					<em>{{insights.title}}</em>
+				</div>
+				<div class="col-12 col-md-7 offset-md-1 col-xl-7 offset-xl-0 pd-left d-none d-md-inline-flex">
+					<p class="letters">{{insights.text}}</p>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="s-homepage s-homepage--insights">
+			<div class="container d-none d-md-block">
+				<div class="row">
+					{% for i in range(1,5) %}
+					<div class="col-12 insight--row">
+						<a href="{{ fn('get_permalink', 189) }}" class="row d-flex align-items-center single cta" style="margin:0 0;">
+							<div class="col-md-6 col-xl-4">
+								<sup>0{{i}}</sup> <em>Insight title will go here…</em>
+							</div>
+							<div class="col-md-3 col-xl-6 relative">
+								Industry
+							</div>
+							<div class="col-auto col-xl-1 text-right relative">
+								May
+							</div>
+							<div class="col-auto col-xl-1 text-right relative">
+								2021
+							</div>
+						</a>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class="container">
+				<div class="row">
+					<div class="col-12 insight--row">
+						<a href="{{ fn('get_permalink', 22) }}" class="row d-flex align-items-center cta darkel insights--all">
+							<span>{{__('See all CALX Insights','calx')}}</span>
+							<svg viewBox="0 0 8.121 13.414" class="arrow"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow" /></svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="container">
+		<div class="row d-flex justify-content-between s-homepage s-homepage--pre-footer s-homepage--reveal-cortains">
+			{% set careers = post.meta('calx_careers') %}
+			<div class="col-md-6 oh">
+				<a href="{{ fn('get_permalink', 189) }}" class="relative overlay darkEl cta block oh">
+					<div class="cortain"></div>
+					<picture>
+						<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(careers.image).src|resize(1200, 800)|towebp}} 1x, {{ Image(careers.image).src|resize(1000, 1000)|towebp}} 2x">
+						<source media="(min-width: 1200px)" srcset="{{ Image(careers.image).src | resize(1200, 800)}} 1x, {{ Image(careers.image).src | resize(1000, 1000)}} 2x">
+						<source media="(min-width: 600px)" srcset="{{ Image(careers.image).src | resize(600, 600)}}">
+						<img src="{{ Image(careers.image).src | resize(400, 400) }}" alt="Image"/>
+					</picture>
+				</a>
+
+				<div class="inner">
+					<a href="{{ fn('get_permalink', 189) }}" class="cta">
+						<em class="fadeIn black">{{careers.title}}</em>
+					</a>
+
+					<p class="fadeIn">{{careers.text}}</p>
+				</div>
+			</div>
+
+			{% set academy = post.meta('join_the_academy') %}
+			<div class="col-md-6">
+				<a href="{{ fn('get_permalink', 191) }}" class="relative overlay darkEl cta block oh">
+					<div class="cortain"></div>
+					<picture>
+						<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(academy.image).src|resize(1200, 800)|towebp}} 1x, {{ Image(academy.image).src|resize(1000, 1000)|towebp}} 2x">
+						<source media="(min-width: 1200px)" srcset="{{ Image(academy.image).src | resize(1200, 800)}} 1x, {{ Image(academy.image).src | resize(1000, 1000)}} 2x">
+						<source media="(min-width: 600px)" srcset="{{ Image(academy.image).src | resize(600, 600)}}">
+						<img src="{{ Image(academy.image).src | resize(400, 400) }}" alt="Image"/>
+					</picture>
+				</a>
+
+				<div class="inner">
+					<a href="{{ fn('get_permalink', 191) }}" class="cta">
+						<em class="fadeIn black">{{academy.title}}</em>
+					</a>
+
+					<p class="fadeIn">{{academy.text}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

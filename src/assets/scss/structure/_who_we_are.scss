@@ -1,0 +1,393 @@
+
+.page-template-our-people {
+    h1 {
+        font-size: 50px;
+        @include media-breakpoint-up(md) {
+            font-size: 90px;
+        }
+    }
+}
+
+.page-template-our-people,
+.page-template-proudly-saudi,
+.page-template-our-purpose,
+.page-template-industries {
+    .s--intro {margin-top: 20px;}
+    @include media-breakpoint-up(md) {
+        .s--intro {margin-top: 10px;}
+    }
+}
+
+
+.s {
+    &--chairman,
+    &--ceo {
+        padding-top: 20px;
+        padding-bottom: 40px;
+        @include media-breakpoint-up(md) {
+            padding-top: 110px;
+            padding-bottom: 150px;
+        }
+
+        picture,
+        img {
+            max-width: 100% !important;
+            width: 100%;
+            height: 400px;
+            position: relative;
+
+            @include media-breakpoint-up(md) {
+                object-fit: cover;
+                height: 680px;
+            }
+        }
+        em {
+            position: relative;
+            font-family: var(--visbyMedium);
+            font-size: 30px;
+            display: block;
+            line-height: 140%;
+            margin-top: 40px;
+
+            @include media-breakpoint-up(md) {
+                font-family: var(--visbyDemi);
+                font-size: 40px;
+                margin-top: 0;
+            }
+            svg {
+                position: absolute;
+                left: 0;
+                top: 10px;
+                z-index: 0;
+                height: 122px;
+                @include media-breakpoint-up(md) {
+                    top: 0;
+                    @include transform(translateY(-30px));
+                }
+            }
+        }
+
+        .author {
+            padding-top:30px;
+            @include media-breakpoint-up(md) {
+                padding-top: 110px;
+            }
+            strong {
+                font-family: var(--visbyMedium);
+                font-size: 24px;
+                display: block;
+                line-height: 140%;
+            }
+            span {
+                font-size: 14px;
+                opacity: .7;
+                font-family: var(--visbyMedium);
+                margin-top: 11px;
+            }
+            hr {
+                background: var(--black);
+                height: 4px;
+                opacity: 1;
+                margin: 0;
+                border: 0;
+                margin-top: 18px;
+                width: 100%;
+                display: block;
+            }
+        }
+    }
+
+
+    &--chairman {
+        padding-top: 20px;
+        padding-bottom: 40px;
+        @include media-breakpoint-up(md) {
+            padding-top: 110px;
+            padding-bottom: 90px;
+        }
+        p {
+            font-family: var(--visbyMedium);
+            font-size: 25px;
+            @include media-breakpoint-up(md) {
+                font-size: 30px;
+            }
+        }
+        em {
+            font-size: 30px;
+            @include media-breakpoint-up(md) {
+                font-size: 40px;
+                margin-top: 130px;
+            }
+        }
+        .author {
+            padding-top:30px;
+        }
+    }
+
+
+    &--culture {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        @include media-breakpoint-up(md) {
+            padding-top: 130px;
+            padding-bottom: 80px;
+        }
+    }
+
+    &--join {
+        padding: 50px 0 80px 0;
+        @include media-breakpoint-up(md) {
+            padding: 80px 0;
+        }
+        @include media-breakpoint-up(xl) {
+            padding: 100px 0 140px 0;
+        }
+
+        .enquire {
+            margin-top: 20px;
+        }
+    }
+}
+
+.s-purpose {
+    &--core {
+        padding-bottom: 40px;
+        @include media-breakpoint-up(md) {
+            padding-bottom: 140px;
+        }
+    }
+    &--blockquote {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        @include media-breakpoint-up(md) {
+            padding-top: 140px;
+            padding-bottom: 140px;
+        }
+    }
+
+
+    .x-slider {
+        padding-top: 30px;
+        .swiper-slide {
+            padding: 20px 0;
+            @include transition(background 0.3s ease-in-out, padding 0.3s ease-in-out);
+            will-change: padding;
+            position: relative;
+            overflow: hidden;
+            .inner {
+                @include transition(all 0.3s ease-in-out);
+                height: 310px;
+                background: #F7F7F7;
+                padding: 100px 20px 30px 20px;
+            }
+
+            img {
+                width: 37px;
+                height: 37px;
+                object-fit: scale-down;@include transition(height 0.3s ease-in-out);
+            }
+            .full {height: 0;opacity: 0; visibility: hidden;@include transition(opacity 0.3s ease-in-out);}
+
+
+            &:active,
+            &:hover {
+                padding: 0 0;
+                background: var(--black);
+                .truncated {display: none;}
+                .full {opacity: 1; visibility: visible; font-size: 15px;}
+
+
+                img {height: 0;}
+
+                .inner {
+                    height: auto;
+                    background: var(--black);
+                    color: white;
+                    padding: 0px 20px 30px 20px;
+                }
+            }
+        }
+
+        em {
+            font-size: 24px;
+            font-family: var(--visbyDemi);
+            margin-top: 17px;
+            display: block;
+            padding-bottom: 10px;
+        }
+        p {
+            opacity: 0.7;
+            font-family: var(--visbyMedium);
+            font-size: 16px;
+            line-height: 140%;
+
+        }
+    }
+
+    .button-next,
+    .button-prev {
+        position: absolute;
+        top: 0;
+        z-index: 9999;
+        right: 0;
+        opacity: 0.7;
+        width: 40px;
+        height: 40px;
+        color:red;@include transition(opacity 0.3s ease-in-out);
+        display: inline-block;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .button-prev {
+        right: 60px;
+        @include transform(rotate(-180deg));
+    }
+
+
+
+
+    &--ethics {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        @include media-breakpoint-up(md) {
+            padding-top: 120px;
+            padding-bottom: 120px;
+        }
+    }
+
+    &--difference {
+        padding-top: 20px;
+        padding-bottom: 40px;
+        @include media-breakpoint-up(md) {
+            padding-top: 40px;
+            padding-bottom: 120px;
+        }
+    }
+
+    &--standard-module {
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+        @include media-breakpoint-up(md) {
+            padding-top: 120px;
+            padding-bottom: 120px;
+        }
+    }
+
+    &--next-page  {
+        padding-top: 40px;
+        padding-bottom: 60px;
+
+        .s--enquire {padding: 0 !important;}
+
+        @include media-breakpoint-up(md) {
+            padding-top: 120px;
+            padding-bottom: 120px;
+        }
+    }
+}
+
+
+.s-industries--quote {
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    @include media-breakpoint-up(md) {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+}
+
+.s-industries--next-page .s--enquire {
+    padding-top: 0px;
+    padding-bottom: 60px;
+    @include media-breakpoint-up(md) {
+        padding-top: 130px;
+        padding-bottom: 140px;
+    }
+}
+
+.s--single-industry {
+    padding-bottom: 60px;
+    @include media-breakpoint-up(md) {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    em.title {
+        font-family: var(--visbyDemi);
+        margin-bottom: 30px;
+        display: block;
+        @include media-breakpoint-up(md) {
+            font-size: 24px;
+            line-height: 140%;
+            color: var(--black);
+        }
+    }
+
+
+    em {
+        font-size: 24px;
+        font-family: var(--visbyMedium);
+        @include media-breakpoint-up(md) {
+            font-family: var(--visbyMedium);
+            font-size: 30px;
+            line-height: 140%;
+            color: var(--black);
+        }
+    }
+    p {
+        opacity: 0.7;
+        font-size: 16px;
+        margin-top: 20px;
+        color: var(--black);
+        color: var(--black);
+    }
+
+    img {
+        height: 300px;
+        object-fit: cover;
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+
+
+    @include media-breakpoint-up(md) {
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        p {
+            margin-top:40px;
+        }
+
+        img {
+            height: 600px;
+            object-fit: cover;
+            max-width: 100%;
+            width: 100%;
+            margin-bottom: 50px;
+        }
+    }
+}
+
+.s-saudi {
+    &--ceo {
+        padding-top: 0px;
+        padding-bottom: 60px;
+        @include media-breakpoint-up(md) {
+            padding-top: 100px;
+            padding-bottom: 140px;
+        }
+
+        em {margin: 0;}
+    }
+    &--next-page .s--enquire {
+        padding-top: 40px;
+        padding-bottom: 60px;
+        @include media-breakpoint-up(md) {
+            padding-top: 130px;
+            padding-bottom: 140px;
+        }
+    }
+}

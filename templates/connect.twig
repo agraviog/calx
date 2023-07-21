@@ -1,0 +1,52 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+	<div class="container intro js-typed-text">
+		<div class="row">
+			<div class="col-md-5 col-xl-4 col-xxl-3 order-2 order-md-1 d-none d-md-inline-block">
+				<p class="intro--text">{{post.meta('intro').label}}</p>
+			</div>
+
+			<div class="col-md-7 col-xl-6 col-xxl-7 offset-xl-1 offset-xxl-2 pd-left order-1 order-md-2">
+				<div class="row row--inner">
+					<div class="col-xl-12">
+						<h1 class="intro--title">{{post.title}}</h1>
+					</div>
+				</div>
+
+				<em class="intro--subtitle letters">
+					{{post.meta('intro').text}}
+				</em>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="container s-careers--form fadeForm">
+		<div class="row">
+			<div class="col-md-4 col-xl-5">
+				<em class="fadeIn">{{ __('Email', 'calx') }}</em>
+				<p><a href="mailto:contact@calx.co" class="link--underline cta">contact@calx.co</a></p>
+
+				<div class="mt-px40">
+					<em class="fadeIn">{{ __('Follow us', 'calx') }}</em>
+					<p><a href="{{linkedin}}" target="_blank" class="link--underline cta">Linkedin</a></p>
+				</div>
+			</div>
+
+			<div class="col-12 col-md-8 col-xl-7 pd-left">
+				<em class="formTitle letters">{{__('Make an Enquiry', 'calx')}}</em>
+
+
+				<div class="s-careers--contact-form-inputs relative">
+					{% filter shortcodes %}
+						[contact-form-7 id="5" title="Calx — Contact Form"]
+					{% endfilter %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

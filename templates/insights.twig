@@ -1,0 +1,120 @@
+{% set colors = 'insights' %}
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+	<div class="container intro js-typed-text">
+		<div class="row">
+			<div class="col-md-5 col-xl-4 col-xxl-3 order-2 order-md-1 d-none d-md-inline-block">
+				<p class="intro--text"></p>
+			</div>
+
+			<div class="col-md-7 col-xl-6 col-xxl-7 offset-xl-1 offset-xxl-2 pd-left order-1 order-md-2">
+				<div class="row row--inner">
+					<div class="col-xl-12">
+						<h1 class="intro--title">{{__('Latest Insights', 'calx')}}</h1>
+					</div>
+				</div>
+				<em class="intro--subtitle letters"></em>
+			</div>
+		</div>
+	</div>
+
+	<div class="container s-insights--all">
+		<div class="row filter">
+			<div class="col-12">
+				<em>{{__('Filter by:', 'calx')}}</em>
+			</div>
+			<div class="col-6 col-xl-2">
+				<form action="{{ fn('get_permalink', 22) }}" method="get">
+					<select name="sort_by" class="cat-menu" onchange="return this.form.submit()">
+						<option value="default">{{__('Date', 'calx')}}</option>
+						<option value="desc" {% if sort_by == 'desc' %} selected {% endif %}>{{__('Recent Insights', 'calx')}}</option>
+						<option value="asc" {% if sort_by == 'asc' %} selected {% endif %}>{{__('Oldest Insights', 'calx')}}</option>
+					</select>
+					<noscript><input type="submit" value="View" /></noscript>
+				</form>
+			</div>
+			<div class="col-6 col-xl-2">
+				<form action="{{ fn('get_permalink', 22) }}" method="get">
+					<select name="category" class="cat-menu" onchange="return this.form.submit()">
+						<option value="all">{{__('All Categories', 'calx')}}</option>
+						{% for cat in filter %}
+							<option value="{{cat.slug}}" {% if selected_category == cat.slug %} selected {% endif %}>{{cat.name}}</option>
+						{% endfor %}
+					</select>
+					<noscript><input type="submit" value="View" /></noscript>
+				</form>
+			</div>
+		</div>
+
+		<div class="row articles fade-trigger">
+			{% for article in articles %}
+			<div class="col-xl-4 fadeIn">
+				<div class="relative">
+					<a href="{{ fn('get_permalink', article.ID) }}" class="cta darkEl relative hover--img oh block">
+						<picture>
+							<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(634).src|resize(800,800)|towebp}} 1x, {{ Image(634).src|resize(1000,1000)|towebp}} 2x">
+							<source media="(min-width: 1200px)" srcset="{{ Image(634).src | resize(800,800)}} 1x, {{ Image(634).src | resize(1000,1000)}} 2x">
+							<source media="(min-width: 600px)" srcset="{{ Image(634).src | resize(800, 800)}}">
+							<img src="{{ Image(634).src | resize(600, 400) }}" alt="CALX Intro Image" class="darkEl"/>
+						</picture>
+						<div class="overlay">
+							{{article.category}}
+						</div>
+					</a>
+				</div>
+
+				<div class="content">
+					<span>{{article.date}}</span>
+					<a href="{{ fn('get_permalink', article.ID) }}" class="cta">
+						<em class="block">{{article.title}}</em>
+					</a>
+					<p>{{article.meta('intro').text|striptags|truncate(18)}}</p>
+				</div>
+			</div>
+			{% endfor %}
+			{% if articles is empty %}
+			<div class="col-12 text-center empty--state">
+				<em>{{__('Not found', 'calx')}}</em>
+				<div class="mt-px40">
+					<a href="{{ fn('get_permalink', 22) }}" class="moveitUp cta btn-read-more mt">
+						<span>{{ __('Check all Insights', 'calx') }}</span>
+						<svg viewBox="0 0 8.121 13.414" class="arrow"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#arrow" /></svg>
+					</a>
+				</div>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+
+	{% if articles.pagination.pages %}
+	<div class="container pagination">
+		<div class="row text-center justify-content-center d-flex align-items-center">
+			{% if  articles.pagination.prev %}
+			<div class="col-auto">
+				<a href="{{ articles.pagination.prev.link}}" class="prev-page cta {{ articles.pagination.prev.link|length ? '' : 'invisible'}}">{{__('Prev Page', 'calx')}}</a>
+			</div>
+			{% endif %}
+			{% for page in articles.pagination.pages %}
+				{% if page.link %}
+					<div class="col-auto">
+						<a href="{{page.link}}" class="{{page.class}} cta">{{page.title}}</a>
+					</div>
+				{% else %}
+					<div class="col-auto">
+						<a href="javascript:void(0);" class="selected">{{page.title}}</a>
+					</div>
+				{% endif %}
+			{% endfor %}
+			{% if articles.pagination.next %}
+			<div class="col-auto">
+				<a href="{{ articles.pagination.next.link}}" class="next-page cta {{ articles.pagination.next.link|length ? '' : 'invisible'}}">{{__('Next Page', 'calx')}}</a>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+	{% endif %}
+
+
+{% endblock %}

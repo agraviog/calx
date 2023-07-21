@@ -1,0 +1,5 @@
+
+
+    {% for currentLang in languagelist %}
+        <li><a {% if currentLang['active'] %}class="active"{% endif %} href="{{currentLang['url']}}">{{currentLang['native_name'] }}</a></li>
+    {% endfor %}

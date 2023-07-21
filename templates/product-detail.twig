@@ -1,0 +1,208 @@
+{% set colors = scheme %}
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+	<div class="container intro">
+		<div class="row">
+			<div class="col-md-5 col-xl-4 col-xxl-3 order-2 order-md-1">
+				<p class="intro--text letters">{{post.meta('intro').label}}</p>
+
+			</div>
+
+			<div class="col-md-7 col-xl-6 col-xxl-7 offset-xl-1 offset-xxl-2 pd-left order-1 order-md-2">
+				<div class="relative">
+					<div class="relative inline">
+						<div class="panel--left"></div>
+						<svg viewBox="{{logo.viewbox}}" class="intro--logo"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#{{logo.id}}" /></svg>
+					</div>
+				</div>
+
+				<em class="intro--title intro--subtitle letters">{{post.meta('intro').title}}</em>
+			</div>
+		</div>
+	</div>
+
+	<div class="container slideUp s-strategy reveal-header s--intro">
+		<div class="row">
+			<div class="col-12 relative oh">
+				<div class="panel"></div>
+				<picture>
+					<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(post.meta('intro').image).src|resize(1800, 1200)|towebp}} 1x, {{ Image(post.meta('intro').image).src|resize(1850, 1200)|towebp}} 2x">
+					<source media="(min-width: 1200px)" srcset="{{ Image(post.meta('intro').image).src | resize(1800, 1000)}} 1x, {{ Image(post.meta('intro').image).src | resize(1850, 1000)}} 2x">
+					<source media="(min-width: 600px)" srcset="{{ Image(post.meta('intro').image).src | resize(800, 800)}}">
+					<img src="{{ Image(post.meta('intro').image).src | resize(600, 400) }}" alt="CALX Intro Image" class="intro--picture darkEl" />
+				</picture>
+			</div>
+		</div>
+	</div>
+
+	<div class="container mt-px30 d-none d-md-block s--labels">
+		<div class="row">
+			<div class="col-md-4 col-xl-3 col-1">
+				<p class="size14 colorized demi">{{post.meta('labels').label_one}}</p>
+			</div>
+			<div class="col-md-4 offset-xl-2 col-xl-4 col-xxl-4 pd-left col-2">
+				<p class="size14 colorized demi">{{post.meta('labels').label_two}}</p>
+			</div>
+			<div class="col-md-4 col-xl-3 text-xxl-right col-3">
+				<p class="size14 colorized demi">{{post.meta('labels').label_three}}</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="s--largetext s-product--description fade-trigger">
+		<div class="container">
+			<div class="row d-flex justify-content-end">
+				<div class="col-12 col-md-8 col-xl-7 pd-left">
+					<p class="fadeIn">
+						{{post.meta('description')}}
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% set blockquote = post.meta('blockquote') %}
+	<div class="container-fluid oh">
+		<div class="row d-flex flex-nowrap justify-content-center">
+			<div class="col-auto text-center relative">
+				<blockquote class="js-parallax" data-parallax='{"x": 250, "smoothness": 20}'>
+					{{blockquote.first_line}}
+				</blockquote>
+				<blockquote class="js-parallax-reverse" data-parallax='{"x": -150, "smoothness": 10}'>
+					{{blockquote.second_line}}
+				</blockquote>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="s-product--features">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<p class="s-product--features-tile">{{__('Features', 'calx')}}</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div class="swiper-container x-slider d-flex">
+						<div class="swiper-wrapper d-flex justify-content-start align-items-start">
+							{% for item in post.meta('features') %}
+							<div class="swiper-slide relative">
+								<div {% if i < '4' %}class="swiper--inner"{% endif %}>
+									<svg viewBox="{{icon.viewbox}}" class="icon"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#{{icon.id}}" /></svg>
+									<picture>
+									    <source media="(min-width: 1000px)" type="image/webp" srcset="{{ Image(item.image).src|resize(900, 900)|towebp}} 1x, {{ Image(item.image).src|resize(1100, 1100)|towebp}} 2x">
+									    <source media="(min-width: 1000px)" srcset="{{ Image(item.image).src | resize(900, 900)}} 1x, {{ Image(item.image).src | resize(1100, 1100)}} 2x">
+									    <img src="{{ Image(item.image).src | resize(600, 600) }}" alt="CALX Image" class="darkEl" />
+									</picture>
+
+									<div class="swiper-slide--content">
+										<em class="demi">{{item.title}}</em>
+										<p>{{item.text}}</p>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+						<div class="swiper-scrollbar"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="js-typed-text">
+		{% set beta = post.meta('beta') %}
+		<div class="container showIMG--triger">
+			<div class="row d-flex s--fluid-image relative">
+				<div class="col-12 relative">
+					<div class="cortains">
+						<div class="cortains--left"></div>
+						<div class="cortains--right"></div>
+					</div>
+					<picture>
+						<source media="(min-width: 1200px)" type="image/webp" srcset="{{ Image(beta.image).src|resize(1800, 1200)|towebp}} 1x, {{ Image(beta.image).src|resize(1850, 1200)|towebp}} 2x">
+						<source media="(min-width: 1200px)" srcset="{{ Image(beta.image).src | resize(1800, 1000)}} 1x, {{ Image(beta.image).src | resize(1850, 1000)}} 2x">
+						<source media="(min-width: 600px)" srcset="{{ Image(beta.image).src | resize(800, 800)}}">
+						<img src="{{ Image(beta.image).src | resize(600, 400) }}" alt="CALX Image" class="darkEl darkEl" />
+					</picture>
+				</div>
+			</div>
+		</div>
+
+		<div class="s-product--beta">
+			<div class="container">
+				<div class="row d-flex justify-content-end">
+					<div class="col-12 col-xl-7 relative">
+						<svg viewBox="0 0 167.5 122" class="quote"><use xlink:href="{{ site.theme.link }}/dist/assets/icons/icons.svg#quote" /></svg>
+						<h2 class="letters colorized">{{beta.blockquote}}</h2>
+						<p class="block author">{{beta.author}}</p> <!--  {{__('Ibrahim Alshamlan', 'calx')}} -->
+						<small class="block role">{{beta.role}}</small> <!-- {{__('Head of PMO — Awqaf', 'calx')}} -->
+						<small class="block role">{{beta.company}}</small> <!-- {{__('Head of PMO — Awqaf', 'calx')}} -->
+						<hr>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="s-product--contact-form fadeForm js-typed-text">
+		<div class="container">
+			<div class="row d-flex justify-content-end">
+				<div class="col-12 col-xl-7 relative">
+					<h3 class="letters">{{beta.contact_us}}</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 col-xl-5">
+					<h4>{{__('Contact us', 'calx')}}</h4>
+
+					<dd>
+						<dt>{{__('Email', 'calx')}}</dt>
+						<dd><a href="mailto:contact@calx.co" class="visbyregular link--underline cta">contact@calx.co</a></dd>
+					</dd>
+
+					<dd>
+						<dt>{{__('Follow us', 'calx')}}</dt>
+						<dd><a href="{{linkedin}}" class="visbyregular link--underline cta">Linkedin</a></dd>
+					</dd>
+				</div>
+
+				<div class="col-12 col-md-7 offset-md-1 col-xl-7 offset-xl-0">
+					<div class="block">
+						<em class="letters">{{__('Simply fill out the form and we’ll be in touch soon.', 'calx')}}</em>
+					</div>
+
+					<div class="s-product--contact-form-inputs relative">
+						{% filter shortcodes %}
+							[contact-form-7 id="5" title="Calx — Contact Form"]
+						{% endfilter %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="s-product--next-project">
+		<div class="container">
+			<div class="row d-flex justify-content-end">
+				<div class="col-10 col-md-7">
+					<span class="opacity-7 medium">{{__('Next', 'calx')}}</span>
+
+					<div>
+						<a href="{{ fn('get_permalink', next_project.id) }}" class="link--underline cta visbyDemi">{{__(next_project.name, 'calx')}}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
